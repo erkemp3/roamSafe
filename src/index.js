@@ -5,9 +5,9 @@ import "./index.css";
 import App from "./components/App";
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  // <React.StrictMode>
+  <App />,
+  // </React.StrictMode>,
   // eslint-disable-next-line comma-dangle
   document.getElementById("root")
 );
