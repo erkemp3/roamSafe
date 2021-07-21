@@ -5,6 +5,9 @@
 import React from "react";
 import "../styles/App.css";
 import axios from "axios";
+import Login from "./Login";
+import Signup from "./Signup";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 const options = {
   method: "GET",
@@ -30,6 +33,12 @@ function App() {
     <div className="App">
       <header className="App-header">
         <h1>Covid App</h1>
+        <Router>
+          <Switch>
+            <Route path="/login" component={Login} />
+            <Route path="/signup" component={Signup} />
+          </Switch>
+        </Router>
       </header>
     </div>
   );
