@@ -12,6 +12,10 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { FirebaseAuthProvider } from "@react-firebase/auth";
 import firebase from "firebase/app";
 import "firebase/auth";
+import NavBar from "./NavBar";
+import Logout from "./Logout";
+import CovidMap from "./CovidMap";
+import Homepage from "./Homepage";
 
 const config = {
   apiKey: "AIzaSyCksXWCl4y5g7yPE9tUD8Mv5PqktSVkADs",
@@ -46,15 +50,19 @@ function App() {
   return (
     <FirebaseAuthProvider firebase={firebase} {...config}>
       <div className="App">
-        <header className="App-header">
-          <h1>Covid App</h1>
-          <Router>
+        <Router>
+          <NavBar />
+          <header className="App-header">
+            <h1>Covid App</h1>
             <Switch>
+              <Route exact path="/" component={Homepage} />
+              <Route exact path="/covid-map" component={CovidMap} />
+              <Route exact path="/log-out" component={Logout} />
               <Route path="/login" component={Login} />
               <Route path="/signup" component={Signup} />
             </Switch>
-          </Router>
-        </header>
+          </header>
+        </Router>
       </div>
     </FirebaseAuthProvider>
   );
