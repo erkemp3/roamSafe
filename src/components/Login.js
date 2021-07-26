@@ -1,20 +1,21 @@
 /* eslint-disable quotes */
 import React, { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
-import { useForm } from "../hooks/useForm";
 import "../styles/Login.css";
 
 const Login = () => {
-  const [{ userName, email, password }, setInput] = useForm({
+  // eslint-disable-next-line object-curly-newline
+  const [input, setInput] = useState({
     userName: "",
     email: "",
     password: "",
+    passwordConfirm: "",
   });
 
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
 
-  const { login, loginWithGoogle } = { email, password };
+  // const { login, loginWithGoogle } = { input.email, input.password };
   const history = useHistory();
 
   const handleSubmit = async (event) => {
@@ -23,7 +24,7 @@ const Login = () => {
     try {
       setError("");
       setLoading(true);
-      await login(email, password);
+      // await login(input.email, input.password);
       history.push("/");
     } catch (e) {
       setError("Failed to sign in");
@@ -38,7 +39,7 @@ const Login = () => {
     try {
       setError("");
       setLoading(true);
-      await loginWithGoogle();
+      // await loginWithGoogle();
       history.push("/");
     } catch (e) {
       setError("Failed to sign in");
@@ -55,7 +56,7 @@ const Login = () => {
             id="name"
             name="name"
             type="text"
-            value={userName}
+            value={input.userName}
             placeholder="Name"
             onChange={setInput}
           />
@@ -63,7 +64,7 @@ const Login = () => {
             id="email"
             name="email"
             type="text"
-            value={email}
+            value={input.email}
             placeholder="E-mail"
             onChange={setInput}
           />
@@ -73,7 +74,7 @@ const Login = () => {
             id="password"
             name="password"
             type="password"
-            value={password}
+            value={input.password}
             placeholder="Password"
             onChange={setInput}
           />

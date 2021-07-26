@@ -1,24 +1,25 @@
+/* eslint-disable no-console */
+/* eslint-disable spaced-comment */
 /* eslint-disable quotes */
 import React, { useState } from "react";
-import { Link, useHistory } from "react-router-dom";
-import { useForm } from "../hooks/useForm";
+import { Link } from "react-router-dom";
+import firebase from "firebase";
+import { IfFirebaseAuthedAnd } from "@react-firebase/auth";
 
 const Signup = () => {
-  // eslint-disable-next-line object-curly-newline
-  const [{ userName, email, password, passwordConfirm }, setInput] = useForm({
-    userName: "",
-    email: "",
-    password: "",
-    passwordConfirm: "",
-  });
+  const [userName, setUserName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [passwordConfirm, setPasswordConfirm] = useState("");
 
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
 
-  const { signup } = { email, password };
-  const history = useHistory();
+  const signup = async () => {
+    await firebase.auth().createUserWithEmailAndPassword(email, password);
+  };
 
-  const handleSubmit = async (event) => {
+  const handleSubmitClick = async (event) => {
     event.preventDefault();
 
     if (password !== passwordConfirm) {
@@ -27,8 +28,8 @@ const Signup = () => {
       try {
         setError("");
         setLoading(true);
-        await signup(email, password);
-        history.push("/");
+        await signup();
+        // history.push("/");
       } catch (e) {
         setError("Failed to create account");
       } finally {
@@ -39,7 +40,20 @@ const Signup = () => {
 
   return (
     <>
-      <form className="signup-form" onSubmit={handleSubmit}>
+      {loading && <p>Loading...</p>}
+      <IfFirebaseAuthedAnd
+        filter={({ user }) => {
+          console.log(user);
+          if (!user.email) {
+            return false;
+          }
+          return true;
+        }}
+      >
+        {() => <p>you are logged in </p>}
+      </IfFirebaseAuthedAnd>
+
+      <form className="signup-form" onSubmit={handleSubmitClick}>
         <div>
           <input
             id="name"
@@ -47,7 +61,9 @@ const Signup = () => {
             type="text"
             value={userName}
             placeholder="Name"
-            onChange={setInput}
+            onChange={(e) => {
+              setUserName(e.target.value);
+            }}
           />
           <input
             id="email"
@@ -55,7 +71,9 @@ const Signup = () => {
             type="text"
             value={email}
             placeholder="E-mail"
-            onChange={setInput}
+            onChange={(e) => {
+              setEmail(e.target.value);
+            }}
           />
         </div>
         <div>
@@ -65,7 +83,9 @@ const Signup = () => {
             type="password"
             value={password}
             placeholder="Password"
-            onChange={setInput}
+            onChange={(e) => {
+              setPassword(e.target.value);
+            }}
           />
         </div>
         <div>
@@ -75,13 +95,13 @@ const Signup = () => {
             type="password"
             value={passwordConfirm}
             placeholder="Confirm Password"
-            onChange={setInput}
+            onChange={(e) => {
+              setPasswordConfirm(e.target.value);
+            }}
           />
         </div>
         {error && <div>{error}</div>}
-        <button type="submit" disabled={loading}>
-          Sign Up
-        </button>
+        <button type="submit">Sign Up</button>
       </form>
       <div>
         Already have an account?
