@@ -2,7 +2,7 @@
 /* eslint-disable spaced-comment */
 /* eslint-disable quotes */
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import firebase from "firebase";
 import { IfFirebaseAuthedAnd } from "@react-firebase/auth";
 
@@ -14,6 +14,8 @@ const Signup = () => {
 
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
+
+  const history = useHistory();
 
   const signup = async () => {
     await firebase.auth().createUserWithEmailAndPassword(email, password);
@@ -29,7 +31,7 @@ const Signup = () => {
         setError("");
         setLoading(true);
         await signup();
-        // history.push("/");
+        history.push("/");
       } catch (e) {
         setError("Failed to create account");
       } finally {
@@ -43,14 +45,13 @@ const Signup = () => {
       {loading && <p>Loading...</p>}
       <IfFirebaseAuthedAnd
         filter={({ user }) => {
-          console.log(user);
           if (!user.email) {
             return false;
           }
           return true;
         }}
       >
-        {() => <p>you are logged in </p>}
+        {() => <p>Welcome! </p>}
       </IfFirebaseAuthedAnd>
 
       <form className="signup-form" onSubmit={handleSubmitClick}>

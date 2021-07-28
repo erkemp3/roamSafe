@@ -16,6 +16,7 @@ import NavBar from "./NavBar";
 import Logout from "./Logout";
 import CovidMap from "./CovidMap";
 import Homepage from "./Homepage";
+import Landing from "./LandingPage";
 
 const config = {
   apiKey: "AIzaSyCksXWCl4y5g7yPE9tUD8Mv5PqktSVkADs",
@@ -53,11 +54,11 @@ function App() {
         <Router>
           <NavBar />
           <header className="App-header">
-            <h1>Covid App</h1>
             <Switch>
-              <Route exact path="/" component={Homepage} />
+              <Route exact path="/" component={Landing} />
+              <Route exact path="/homepage" component={Homepage} />
               <Route exact path="/covid-map" component={CovidMap} />
-              <Route exact path="/log-out" component={Logout} />
+              <Route path="/log-out" component={Logout} />
               <Route path="/login" component={Login} />
               <Route path="/signup" component={Signup} />
             </Switch>

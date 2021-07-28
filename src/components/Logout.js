@@ -1,6 +1,12 @@
 /* eslint-disable quotes */
 import React from "react";
 
-const Logout = () => <div>Logout</div>;
-
-export default Logout;
+export default function Logout() {
+  return (
+    <div className="logout">
+      You have succefuly logged out.
+      <br />
+      See you next time!
+    </div>
+  );
+}
