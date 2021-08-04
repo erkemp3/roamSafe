@@ -1,10 +1,11 @@
 /* eslint-disable no-console */
 /* eslint-disable spaced-comment */
+/* eslint-disable no-unused-vars */
 /* eslint-disable quotes */
-import React, { useState } from "react";
-import { Link, useHistory } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { Link, useHistory, Redirect } from "react-router-dom";
 import firebase from "firebase";
-import { IfFirebaseAuthedAnd } from "@react-firebase/auth";
+import { FirebaseAuthConsumer } from "@react-firebase/auth";
 
 const Signup = () => {
   const [userName, setUserName] = useState("");
@@ -20,6 +21,11 @@ const Signup = () => {
   const signup = async () => {
     await firebase.auth().createUserWithEmailAndPassword(email, password);
   };
+
+  useEffect(() => {
+    const unsubscribe = firebase.auth().onAuthStateChanged((user) => {});
+    return unsubscribe;
+  }, []);
 
   const handleSubmitClick = async (event) => {
     event.preventDefault();
@@ -41,74 +47,73 @@ const Signup = () => {
   };
 
   return (
-    <>
-      {loading && <p>Loading...</p>}
-      <IfFirebaseAuthedAnd
-        filter={({ user }) => {
-          if (!user.email) {
-            return false;
-          }
-          return true;
-        }}
-      >
-        {() => <p>Welcome! </p>}
-      </IfFirebaseAuthedAnd>
+    <FirebaseAuthConsumer>
+      {({ isSignedIn }) => {
+        if (isSignedIn) {
+          return <Redirect to="/" />;
+        }
+        return (
+          <>
+            {() => <p>Welcome! </p>}
 
-      <form className="signup-form" onSubmit={handleSubmitClick}>
-        <div>
-          <input
-            id="name"
-            name="name"
-            type="text"
-            value={userName}
-            placeholder="Name"
-            onChange={(e) => {
-              setUserName(e.target.value);
-            }}
-          />
-          <input
-            id="email"
-            name="email"
-            type="text"
-            value={email}
-            placeholder="E-mail"
-            onChange={(e) => {
-              setEmail(e.target.value);
-            }}
-          />
-        </div>
-        <div>
-          <input
-            id="password"
-            name="password"
-            type="password"
-            value={password}
-            placeholder="Password"
-            onChange={(e) => {
-              setPassword(e.target.value);
-            }}
-          />
-        </div>
-        <div>
-          <input
-            id="passwordConfirm"
-            name="passwordConfirm"
-            type="password"
-            value={passwordConfirm}
-            placeholder="Confirm Password"
-            onChange={(e) => {
-              setPasswordConfirm(e.target.value);
-            }}
-          />
-        </div>
-        {error && <div>{error}</div>}
-        <button type="submit">Sign Up</button>
-      </form>
-      <div>
-        Already have an account?
-        <Link to="/login">Log in</Link>
-      </div>
-    </>
+            <form className="signup-form" onSubmit={handleSubmitClick}>
+              <div>
+                <input
+                  id="name"
+                  name="name"
+                  type="text"
+                  value={userName}
+                  placeholder="Name"
+                  onChange={(e) => {
+                    setUserName(e.target.value);
+                  }}
+                />
+                <input
+                  id="email"
+                  name="email"
+                  type="text"
+                  value={email}
+                  placeholder="E-mail"
+                  onChange={(e) => {
+                    setEmail(e.target.value);
+                  }}
+                />
+              </div>
+              <div>
+                <input
+                  id="password"
+                  name="password"
+                  type="password"
+                  value={password}
+                  placeholder="Password"
+                  onChange={(e) => {
+                    setPassword(e.target.value);
+                  }}
+                />
+              </div>
+              <div>
+                <input
+                  id="passwordConfirm"
+                  name="passwordConfirm"
+                  type="password"
+                  value={passwordConfirm}
+                  placeholder="Confirm Password"
+                  onChange={(e) => {
+                    setPasswordConfirm(e.target.value);
+                  }}
+                />
+              </div>
+              {error && <div>{error}</div>}
+              <button type="submit">Sign Up</button>
+            </form>
+            <div>
+              Already have an account?
+              <Link to="/login">Log in</Link>
+            </div>
+          </>
+        );
+      }}
+    </FirebaseAuthConsumer>
   );
 };
 

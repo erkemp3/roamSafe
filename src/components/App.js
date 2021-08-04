@@ -5,7 +5,6 @@
 
 import React from "react";
 import "../styles/App.css";
-import axios from "axios";
 import Login from "./Login";
 import Signup from "./Signup";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
@@ -13,10 +12,10 @@ import { FirebaseAuthProvider } from "@react-firebase/auth";
 import firebase from "firebase/app";
 import "firebase/auth";
 import NavBar from "./NavBar";
-import Logout from "./Logout";
 import CovidMap from "./CovidMap";
-import Homepage from "./Homepage";
+import HomePage from "./HomePage";
 import Landing from "./LandingPage";
+import PrivateRoute from "./PrivateRoute";
 
 const config = {
   apiKey: "AIzaSyCksXWCl4y5g7yPE9tUD8Mv5PqktSVkADs",
@@ -28,25 +27,6 @@ const config = {
   measurementId: "G-H7C0CK2SNZ",
 };
 
-const options = {
-  method: "GET",
-  url: "https://covid-19-data.p.rapidapi.com/report/country/name",
-  params: { name: "Italy", date: "2020-04-01" },
-  headers: {
-    "x-rapidapi-key": "b90edbf277msh8e0bfd7fa82d38ep1c26abjsna979fb239da0",
-    "x-rapidapi-host": "covid-19-data.p.rapidapi.com",
-  },
-};
-
-axios
-  .request(options)
-  .then((response) => {
-    console.log(response.data);
-  })
-  .catch((error) => {
-    console.error(error);
-  });
-
 function App() {
   return (
     <FirebaseAuthProvider firebase={firebase} {...config}>
@@ -56,9 +36,12 @@ function App() {
           <header className="App-header">
             <Switch>
               <Route exact path="/" component={Landing} />
-              <Route exact path="/homepage" component={Homepage} />
-              <Route exact path="/covid-map" component={CovidMap} />
-              <Route path="/log-out" component={Logout} />
+              <PrivateRoute path="/homepage">
+                <HomePage />
+              </PrivateRoute>
+              <PrivateRoute path="/covid-map">
+                <CovidMap />
+              </PrivateRoute>
               <Route path="/login" component={Login} />
               <Route path="/signup" component={Signup} />
             </Switch>

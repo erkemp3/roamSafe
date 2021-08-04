@@ -3,7 +3,8 @@ import React from "react";
 import { Redirect, Route } from "react-router-dom";
 import { FirebaseAuthConsumer } from "@react-firebase/auth";
 
-const PrivateRoute = ({ children, ...rest }) => {
+// eslint-disable-next-line react/prop-types
+const PrivateRoute = ({ children, ...rest }) => (
   <FirebaseAuthConsumer>
     {({ isSignedIn }) => {
       if (isSignedIn) {
@@ -11,7 +12,7 @@ const PrivateRoute = ({ children, ...rest }) => {
       }
       return <Redirect to="/" />;
     }}
-  </FirebaseAuthConsumer>;
-};
+  </FirebaseAuthConsumer>
+);
 
 export default PrivateRoute;

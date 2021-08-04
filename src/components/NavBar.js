@@ -2,28 +2,41 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "../styles/NavBar.css";
+import { FirebaseAuthConsumer } from "@react-firebase/auth";
+import firebase from "firebase";
 
-const NavBar = () => (
-  <div className="navbar">
-    <ul className="navbar-links">
-      <li className="navbar-links-item">
-        {" "}
-        <Link className="a" to="/homepage">
-          HOME
-        </Link>
-      </li>
-      <li className="navbar-links-item">
-        <Link className="a" to="/covid-map">
-          COVID-19 MAP
-        </Link>
-      </li>
-      <li className="navbar-links-item">
-        <Link className="a" to="/log-out">
-          LOG OUT
-        </Link>
-      </li>
-    </ul>
-  </div>
-);
+const NavBar = () => {
+  const logout = async () => {
+    await firebase.auth().signOut();
+  };
+  return (
+    <div className="navbar">
+      <ul className="navbar-links">
+        <FirebaseAuthConsumer>
+          {({ isSignedIn }) => {
+            if (isSignedIn) {
+              return (
+                <>
+                  <li className="navbar-links-item">
+                    <Link to="/homepage">HOME</Link>
+                  </li>
+                  <li className="navbar-links-item">
+                    <Link to="/covid-map">COVID-19 MAP</Link>
+                  </li>
+                  <li className="navbar-links-item">
+                    <button type="button" onClick={() => logout()}>
+                      LOG OUT
+                    </button>
+                  </li>
+                </>
+              );
+            }
+            return undefined;
+          }}
+        </FirebaseAuthConsumer>
+      </ul>
+    </div>
+  );
+};
 
 export default NavBar;
