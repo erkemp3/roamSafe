@@ -16,6 +16,7 @@ import CovidMap from "./CovidMap";
 import HomePage from "./HomePage";
 import Landing from "./LandingPage";
 import PrivateRoute from "./PrivateRoute";
+import CountryInfo from "./CountryInfo";
 
 const config = {
   apiKey: "AIzaSyCksXWCl4y5g7yPE9tUD8Mv5PqktSVkADs",
@@ -38,6 +39,9 @@ function App() {
               <Route exact path="/" component={Landing} />
               <PrivateRoute path="/homepage">
                 <HomePage />
+              </PrivateRoute>
+              <PrivateRoute path="/country-info">
+                <CountryInfo />
               </PrivateRoute>
               <PrivateRoute path="/covid-map">
                 <CovidMap />
