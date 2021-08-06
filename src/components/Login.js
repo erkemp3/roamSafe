@@ -32,7 +32,7 @@ const Login = () => {
       setError("");
       setLoading(true);
       await login();
-      history.push("/");
+      history.push("/homepage");
     } catch (e) {
       setError("Failed to Login");
     } finally {

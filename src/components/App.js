@@ -40,7 +40,7 @@ function App() {
               <PrivateRoute path="/homepage">
                 <HomePage />
               </PrivateRoute>
-              <PrivateRoute path="/country-info">
+              <PrivateRoute path="/country-info/:country">
                 <CountryInfo />
               </PrivateRoute>
               <PrivateRoute path="/covid-map">
