@@ -4,6 +4,7 @@
 /* eslint-disable quotes */
 
 import React from "react";
+import PropTypes from "prop-types";
 import "../styles/App.css";
 import Login from "./Login";
 import Signup from "./Signup";
@@ -28,7 +29,7 @@ const config = {
   measurementId: "G-H7C0CK2SNZ",
 };
 
-function App() {
+function App({ countries }) {
   return (
     <FirebaseAuthProvider firebase={firebase} {...config}>
       <div className="App">
@@ -41,7 +42,7 @@ function App() {
                 <HomePage />
               </PrivateRoute>
               <PrivateRoute path="/country-info/:country">
-                <CountryInfo />
+                <CountryInfo countries={countries} />
               </PrivateRoute>
               <PrivateRoute path="/covid-map">
                 <CovidMap />
@@ -55,5 +56,9 @@ function App() {
     </FirebaseAuthProvider>
   );
 }
+
+App.propTypes = {
+  countries: PropTypes.arrayOf().isRequired,
+};
 
 export default App;

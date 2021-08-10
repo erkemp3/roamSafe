@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-console */
 /* eslint-disable arrow-body-style */
@@ -6,7 +7,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 
-const CountryInfo = () => {
+const CountryInfo = (props) => {
   const { country } = useParams();
   const [covidResult, setCovidResult] = useState(undefined);
   const [countryName, setCountryName] = useState(undefined);
@@ -14,7 +15,9 @@ const CountryInfo = () => {
   const [confirmedCases, setConfirmedCases] = useState(undefined);
   const [numberDeaths, setNumberDeaths] = useState(undefined);
   const [numberRecovered, setNumberRecovered] = useState(undefined);
+  const { countries } = props;
 
+  console.log(countries);
   useEffect(() => {
     if (!country) return;
 
@@ -50,6 +53,7 @@ const CountryInfo = () => {
       <p>{`Confirmed Cases: ${confirmedCases}`}</p>
       <p>{`Deaths: ${numberDeaths}`}</p>
       <p>{`Recovered: ${numberRecovered}`}</p>
+      <p>{`${countries[0].unvaccinated}`}</p>
       <img id="flag" src={domainName} alt="" />
     </div>
   ) : (
