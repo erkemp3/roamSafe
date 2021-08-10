@@ -10,14 +10,9 @@ import axios from "axios";
 const CountryInfo = (props) => {
   const { country } = useParams();
   const [covidResult, setCovidResult] = useState(undefined);
-  const [countryName, setCountryName] = useState(undefined);
-  const [countryCode, setCountryCode] = useState(undefined);
-  const [confirmedCases, setConfirmedCases] = useState(undefined);
-  const [numberDeaths, setNumberDeaths] = useState(undefined);
-  const [numberRecovered, setNumberRecovered] = useState(undefined);
+
   const { countries } = props;
 
-  console.log(countries);
   useEffect(() => {
     if (!country) return;
 
@@ -34,27 +29,34 @@ const CountryInfo = (props) => {
       })
       .then((response) => {
         setCovidResult(response.data);
-        setCountryCode(response.data[0].code);
-        setCountryName(response.data[0].country);
-        setConfirmedCases(response.data[0].confirmed);
-        setNumberDeaths(response.data[0].deaths);
-        setNumberRecovered(response.data[0].recovered);
       })
       .catch((error) => {
         console.error(error);
       });
   }, [country]);
 
-  const domainName = `https://www.countryflags.io/${countryCode}/shiny/64.png`;
+  let data;
+  if (covidResult) {
+    data = countries.filter((x) => x.name === covidResult[0].country);
+  }
 
   return covidResult ? (
     <div>
-      <p>{`Country: ${countryName}`}</p>
-      <p>{`Confirmed Cases: ${confirmedCases}`}</p>
-      <p>{`Deaths: ${numberDeaths}`}</p>
-      <p>{`Recovered: ${numberRecovered}`}</p>
-      <p>{`${countries[0].unvaccinated}`}</p>
-      <img id="flag" src={domainName} alt="" />
+      <p>{`Country: ${covidResult[0].country}`}</p>
+      <p>{`Confirmed Cases: ${covidResult[0].confirmed}`}</p>
+      <p>{`Deaths: ${covidResult[0].deaths}`}</p>
+      <p>{`Recovered: ${covidResult[0].recovered}`}</p>
+      <p>{data[0].unvaccinated}</p>
+      <p>{data[0].vaccinated}</p>
+      <p>{data[0].quarantine}</p>
+      <p>{data[0].masks}</p>
+      <p>{data[0].restaurants}</p>
+      <p>{data[0].bars}</p>
+      <img
+        id="flag"
+        src={`https://www.countryflags.io/${covidResult[0].code}/shiny/64.png`}
+        alt=""
+      />
     </div>
   ) : (
     <div className="country"> </div>

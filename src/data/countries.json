@@ -5,22 +5,18 @@
       "unvaccinated": "Unvaccinated visitors from the United Kingdom can enter Spain with a negative COVID-19 test result.",
       "vaccinated": "Vaccinated visitors from the United Kingdom can enter Spain without restrictions.",
       "quarantine": "Visitors from the United Kingdom are not required to quarantine after entering Spain.",
-      "restrictions": {
-        "masks": "Required in enclosed environments and public transportation.",
-        "restaurants": "Open with restrictions",
-        "bars": "Open with restrictions"
-      }
+      "masks": "Required in enclosed environments and public transportation.",
+      "restaurants": "Open with restrictions",
+      "bars": "Open with restrictions"
     },
     {
       "name": "Portugal",
       "unvaccinated": "Unvaccinated visitors from the United Kingdom need to provide a negative COVID-19 test result and quarantine to enter Portugal.",
       "vaccinated": "Vaccinated visitors from the United Kingdom can enter Portugal without restrictions.",
       "quarantine": "Unvaccinated visitors from the United Kingdom will need to quarantine for 14 days upon entering Portugal. Fully vaccinated visitors with approved vaccination certificates do not need to quarantine.",
-      "restrictions": {
-        "masks": "Required in public spaces, enclosed environments and public transportation.",
-        "restaurants": "Open with restrictions",
-        "bars": "Open with restrictions"
-      }
+      "masks": "Required in public spaces, enclosed environments and public transportation.",
+      "restaurants": "Open with restrictions",
+      "bars": "Open with restrictions"
     }
   ]
 }

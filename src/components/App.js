@@ -1,3 +1,4 @@
+/* eslint-disable comma-dangle */
 /* eslint-disable import/no-extraneous-dependencies */
 /* eslint-disable no-console */
 /* eslint-disable import/order */
@@ -58,7 +59,17 @@ function App({ countries }) {
 }
 
 App.propTypes = {
-  countries: PropTypes.arrayOf().isRequired,
+  countries: PropTypes.arrayOf(
+    PropTypes.shape({
+      name: PropTypes.string.isRequired,
+      vaccinated: PropTypes.string.isRequired,
+      unvaccinated: PropTypes.string.isRequired,
+      quarantine: PropTypes.string.isRequired,
+      masks: PropTypes.string.isRequired,
+      restaurants: PropTypes.string.isRequired,
+      bars: PropTypes.string.isRequired,
+    })
+  ).isRequired,
 };
 
 export default App;
