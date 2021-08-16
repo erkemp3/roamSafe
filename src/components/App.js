@@ -1,10 +1,12 @@
+/* eslint-disable no-undef */
 /* eslint-disable comma-dangle */
 /* eslint-disable import/no-extraneous-dependencies */
 /* eslint-disable no-console */
 /* eslint-disable import/order */
 /* eslint-disable quotes */
 
-import React from "react";
+import React, { useState } from "react";
+import ReactTooltip from "react-tooltip";
 import PropTypes from "prop-types";
 import "../styles/App.css";
 import Login from "./Login";
@@ -31,6 +33,7 @@ const config = {
 };
 
 function App({ countries }) {
+  const [content, setContent] = useState("");
   return (
     <FirebaseAuthProvider firebase={firebase} {...config}>
       <div className="App">
@@ -46,7 +49,9 @@ function App({ countries }) {
                 <CountryInfo countries={countries} />
               </PrivateRoute>
               <PrivateRoute path="/covid-map">
-                <CovidMap />
+                <CovidMap setTooltipContent={setContent}>
+                  <ReactTooltip>{content}</ReactTooltip>
+                </CovidMap>
               </PrivateRoute>
               <Route path="/login" component={Login} />
               <Route path="/signup" component={Signup} />

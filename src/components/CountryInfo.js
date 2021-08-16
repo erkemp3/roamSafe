@@ -10,6 +10,7 @@ import axios from "axios";
 const CountryInfo = (props) => {
   const { country } = useParams();
   const [covidResult, setCovidResult] = useState(undefined);
+  const [riskFactor, setRiskFactor] = useState(undefined);
 
   const { countries } = props;
 
@@ -34,6 +35,23 @@ const CountryInfo = (props) => {
         console.error(error);
       });
   }, [country]);
+
+  useEffect(() => {
+    axios
+      .request({
+        method: "GET",
+        url: "https://www.travel-advisory.info/api/name",
+        params: { name: country },
+      })
+      .then((response) => {
+        setRiskFactor(response.data);
+      })
+      .catch((error) => {
+        // eslint-disable-next-line no-console
+        console.log(error);
+      });
+  }, [riskFactor]);
+  console.log(riskFactor);
 
   let data;
   if (covidResult) {

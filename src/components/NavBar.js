@@ -24,7 +24,7 @@ const NavBar = () => {
                     <Link to="/covid-map">COVID-19 MAP</Link>
                   </li>
                   <li className="navbar-links-item">
-                    <Link to="/country-info/Spain">Country Info</Link>
+                    <Link to="/country-info/Spain">COUNTRY INFO</Link>
                   </li>
                   <li className="navbar-links-item">
                     <button type="button" onClick={() => logout()}>
