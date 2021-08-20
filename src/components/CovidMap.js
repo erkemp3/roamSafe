@@ -1,10 +1,11 @@
-/* eslint-disable react/prop-types */
-/* eslint-disable no-shadow */
+/* eslint-disable comma-dangle */
+/* eslint-disable no-console */
+/* eslint-disable react/jsx-curly-newline */
 /* eslint-disable implicit-arrow-linebreak */
+/* eslint-disable react/prop-types */
 /* eslint-disable operator-linebreak */
 /* eslint-disable quotes */
-import React, { memo } from "react";
-import ReactTooltip from "react-tooltip";
+import React, { memo, useEffect, useState } from "react";
 import {
   ZoomableGroup,
   ComposableMap,
@@ -12,63 +13,75 @@ import {
   Geography,
 } from "react-simple-maps";
 
-import "../styles/CovidMap.css";
+import axios from "axios";
 
 const geoUrl =
   "https://raw.githubusercontent.com/zcreativelabs/react-simple-maps/master/topojson-maps/world-110m.json";
 
-const rounded = (num) => {
-  if (num > 1000000000) {
-    return `${Math.round(num / 100000000) / 10}Bn`;
-  }
-  if (num > 1000000) {
-    return `${Math.round(num / 100000) / 10}M`;
-  }
-  return `${Math.round(num / 100) / 10}K`;
-};
+const CovidMap = ({ setTooltipContent }) => {
+  const [riskFactor, setRiskFactor] = useState(undefined);
 
-const MapChart = ({ setTooltipContent }) => (
-  <>
-    <ComposableMap data-tip="" projectionConfig={{ scale: 200 }}>
-      <ZoomableGroup>
-        <ReactTooltip data-tip="hello world">
+  useEffect(() => {
+    axios
+      .request({
+        method: "GET",
+        url: "https://www.travel-advisory.info/api",
+      })
+      .then((response) => {
+        setRiskFactor(response.data);
+      })
+      .catch((error) => {
+        // eslint-disable-next-line no-console
+        console.log(error);
+      });
+  }, []);
+  console.log(riskFactor);
+
+  return (
+    <>
+      <ComposableMap data-tip="" projectionConfig={{ scale: 200 }}>
+        <ZoomableGroup>
           <Geographies geography={geoUrl}>
-            {
-              ({ geographies }) =>
-                geographies.map((geo) => (
-                  <Geography
-                    key={geo.rsmKey}
-                    geography={geo}
-                    onMouseEnter={() => {
-                      const { NAME, POP_EST } = geo.properties;
-                      setTooltipContent(`${NAME} — ${rounded(POP_EST)}`);
-                    }}
-                    onMouseLeave={() => {
-                      setTooltipContent("");
-                    }}
-                    style={{
-                      default: {
-                        fill: "#D6D6DA",
-                        outline: "none",
-                      },
-                      hover: {
-                        fill: "#F53",
-                        outline: "none",
-                      },
-                      pressed: {
-                        fill: "#E42",
-                        outline: "none",
-                      },
-                    }}
-                  />
-                ))
-              // eslint-disable-next-line react/jsx-curly-newline
+            {({ geographies }) =>
+              geographies.map((geo) => (
+                <Geography
+                  key={geo.rsmKey}
+                  geography={geo}
+                  onMouseEnter={() => {
+                    const { NAME, ISO_A2 } = geo.properties;
+                    // console.log(riskFactor.data[ISO_A2]);
+                    // // eslint-disable-next-line no-console
+                    // // console.log(NAME);
+
+                    setTooltipContent(
+                      `${NAME} — Risk Factor: ${riskFactor.data[ISO_A2].advisory.score}/5`
+                    );
+                  }}
+                  onMouseLeave={() => {
+                    setTooltipContent("");
+                  }}
+                  style={{
+                    default: {
+                      fill: "#D6D6DA",
+                      outline: "none",
+                    },
+                    hover: {
+                      fill: "#F53",
+                      outline: "none",
+                    },
+                    pressed: {
+                      fill: "#E42",
+                      outline: "none",
+                    },
+                  }}
+                />
+              ))
             }
           </Geographies>
-        </ReactTooltip>
-      </ZoomableGroup>
-    </ComposableMap>
-  </>
-);
+        </ZoomableGroup>
+      </ComposableMap>
+    </>
+  );
+};
 
-export default memo(MapChart);
+export default memo(CovidMap);

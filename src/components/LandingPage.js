@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 export default function Landing() {
   return (
-    <div className="landing page">
+    <div className="landing-page">
       <div className="col s12 center-align">
         <h2>Hi! Welcome to Roam Free</h2>
         <b>The first app that helps you travel internationally, covid safe.</b>
@@ -19,7 +19,7 @@ export default function Landing() {
               borderRadius: "3px",
               letterSpacing: "1.5px",
             }}
-            className="sinup button"
+            className="signup-button"
           >
             SignUp
           </Link>
@@ -32,7 +32,7 @@ export default function Landing() {
               borderRadius: "3px",
               letterSpacing: "1.5px",
             }}
-            className="login button"
+            className="login-button"
           >
             Log In
           </Link>

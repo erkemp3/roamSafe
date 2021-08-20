@@ -1,3 +1,4 @@
+/* eslint-disable comma-dangle */
 /* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-console */
@@ -40,8 +41,7 @@ const CountryInfo = (props) => {
     axios
       .request({
         method: "GET",
-        url: "https://www.travel-advisory.info/api/name",
-        params: { name: country },
+        url: "https://www.travel-advisory.info/api",
       })
       .then((response) => {
         setRiskFactor(response.data);
@@ -50,15 +50,24 @@ const CountryInfo = (props) => {
         // eslint-disable-next-line no-console
         console.log(error);
       });
-  }, [riskFactor]);
+  }, []);
   console.log(riskFactor);
-
   let data;
+
+  console.log(covidResult);
+
   if (covidResult) {
     data = countries.filter((x) => x.name === covidResult[0].country);
   }
 
-  return covidResult ? (
+  let countryRiskFactor;
+
+  if (covidResult && riskFactor) {
+    countryRiskFactor = riskFactor.data[covidResult[0].code];
+    console.log(countryRiskFactor);
+  }
+
+  return covidResult && riskFactor ? (
     <div>
       <p>{`Country: ${covidResult[0].country}`}</p>
       <p>{`Confirmed Cases: ${covidResult[0].confirmed}`}</p>
@@ -70,6 +79,8 @@ const CountryInfo = (props) => {
       <p>{data[0].masks}</p>
       <p>{data[0].restaurants}</p>
       <p>{data[0].bars}</p>
+      <p>{`Risk Factor: ${countryRiskFactor.advisory.score}/5`}</p>
+      <p>{countryRiskFactor.advisory.message}</p>
       <img
         id="flag"
         src={`https://www.countryflags.io/${covidResult[0].code}/shiny/64.png`}

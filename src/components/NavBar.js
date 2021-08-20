@@ -27,7 +27,11 @@ const NavBar = () => {
                     <Link to="/country-info/Spain">COUNTRY INFO</Link>
                   </li>
                   <li className="navbar-links-item">
-                    <button type="button" onClick={() => logout()}>
+                    <button
+                      className="btn"
+                      type="button"
+                      onClick={() => logout()}
+                    >
                       LOG OUT
                     </button>
                   </li>

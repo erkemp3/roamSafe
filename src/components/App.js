@@ -1,4 +1,3 @@
-/* eslint-disable no-undef */
 /* eslint-disable comma-dangle */
 /* eslint-disable import/no-extraneous-dependencies */
 /* eslint-disable no-console */
@@ -6,7 +5,6 @@
 /* eslint-disable quotes */
 
 import React, { useState } from "react";
-import ReactTooltip from "react-tooltip";
 import PropTypes from "prop-types";
 import "../styles/App.css";
 import Login from "./Login";
@@ -21,6 +19,7 @@ import HomePage from "./HomePage";
 import Landing from "./LandingPage";
 import PrivateRoute from "./PrivateRoute";
 import CountryInfo from "./CountryInfo";
+import ReactTooltip from "react-tooltip";
 
 const config = {
   apiKey: "AIzaSyCksXWCl4y5g7yPE9tUD8Mv5PqktSVkADs",
@@ -49,9 +48,8 @@ function App({ countries }) {
                 <CountryInfo countries={countries} />
               </PrivateRoute>
               <PrivateRoute path="/covid-map">
-                <CovidMap setTooltipContent={setContent}>
-                  <ReactTooltip>{content}</ReactTooltip>
-                </CovidMap>
+                <CovidMap setTooltipContent={setContent} />
+                <ReactTooltip>{content}</ReactTooltip>
               </PrivateRoute>
               <Route path="/login" component={Login} />
               <Route path="/signup" component={Signup} />
