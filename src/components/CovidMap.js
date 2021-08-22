@@ -14,6 +14,7 @@ import {
 } from "react-simple-maps";
 
 import axios from "axios";
+import "../styles/CovidMap.css";
 
 const geoUrl =
   "https://raw.githubusercontent.com/zcreativelabs/react-simple-maps/master/topojson-maps/world-110m.json";
@@ -37,9 +38,34 @@ const CovidMap = ({ setTooltipContent }) => {
   }, []);
   console.log(riskFactor);
 
+  const getHoverColor = (geo) => {
+    const { ISO_A2 } = geo.properties;
+    if (!riskFactor) {
+      return "#D6D6DA";
+    }
+    const riskFactorData = riskFactor.data[ISO_A2];
+    if (riskFactorData) {
+      const { score } = riskFactorData.advisory;
+      if (score >= 4.5) {
+        return "#F53";
+      }
+      if (score >= 3.5) {
+        return "#FFBF00";
+      }
+      if (score < 3.5) {
+        return "#3f5";
+      }
+    }
+    return "#D6D6DA";
+  };
+
   return (
-    <>
-      <ComposableMap data-tip="" projectionConfig={{ scale: 200 }}>
+    <div className="covidMapContainer">
+      <ComposableMap
+        className="Map"
+        data-tip=""
+        projectionConfig={{ scale: 180 }}
+      >
         <ZoomableGroup>
           <Geographies geography={geoUrl}>
             {({ geographies }) =>
@@ -52,10 +78,10 @@ const CovidMap = ({ setTooltipContent }) => {
                     // console.log(riskFactor.data[ISO_A2]);
                     // // eslint-disable-next-line no-console
                     // // console.log(NAME);
-
-                    setTooltipContent(
-                      `${NAME} — Risk Factor: ${riskFactor.data[ISO_A2].advisory.score}/5`
-                    );
+                    const message = riskFactor.data[ISO_A2]
+                      ? `${NAME} Risk Factor: ${riskFactor.data[ISO_A2].advisory.score}/5`
+                      : "There is no information from this country";
+                    setTooltipContent(`${NAME} - ${message}`);
                   }}
                   onMouseLeave={() => {
                     setTooltipContent("");
@@ -66,7 +92,7 @@ const CovidMap = ({ setTooltipContent }) => {
                       outline: "none",
                     },
                     hover: {
-                      fill: "#F53",
+                      fill: getHoverColor(geo),
                       outline: "none",
                     },
                     pressed: {
@@ -80,7 +106,7 @@ const CovidMap = ({ setTooltipContent }) => {
           </Geographies>
         </ZoomableGroup>
       </ComposableMap>
-    </>
+    </div>
   );
 };
 

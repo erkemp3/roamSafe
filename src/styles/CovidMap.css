@@ -4,11 +4,19 @@ html {
 }
 
 body {
-  margin: 0;
-  padding: 0 1.5rem;
+  padding: 0;
+  margin: 3;
+  width: 100%;
+  object-fit: cover;
 }
 
 svg {
   display: inline-block;
   vertical-align: middle;
+}
+
+.covidMapContainer {
+  width: 100vw;
+  height: 100vh;
+  /* calc(100vh - 100px); */
 }

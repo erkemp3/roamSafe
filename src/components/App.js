@@ -38,7 +38,7 @@ function App({ countries }) {
       <div className="App">
         <Router>
           <NavBar />
-          <header className="App-header">
+          <div className="App-header">
             <Switch>
               <Route exact path="/" component={Landing} />
               <PrivateRoute path="/homepage">
@@ -54,7 +54,7 @@ function App({ countries }) {
               <Route path="/login" component={Login} />
               <Route path="/signup" component={Signup} />
             </Switch>
-          </header>
+          </div>
         </Router>
       </div>
     </FirebaseAuthProvider>
