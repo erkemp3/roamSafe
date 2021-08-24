@@ -4,17 +4,17 @@ Currently in the process of creating a travel app using React, Firebase and exte
 
 ## Technologies
 
-React
-JavaScript
-HTML
-CSS
-Google Firebase
-APIs
+* React
+* JavaScript
+* HTML
+* CSS
+* Google Firebase
+* APIs
 
 ## Packages
 
-Axios
-PropTypes
+* Axios
+* PropTypes
 
 ## Available Scripts
 
