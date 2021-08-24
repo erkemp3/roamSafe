@@ -80,7 +80,7 @@ const CovidMap = ({ setTooltipContent }) => {
                     // // console.log(NAME);
                     const message = riskFactor.data[ISO_A2]
                       ? `${NAME} Risk Factor: ${riskFactor.data[ISO_A2].advisory.score}/5`
-                      : "There is no information from this country";
+                      : "There is no information for this country";
                     setTooltipContent(`${NAME} - ${message}`);
                   }}
                   onMouseLeave={() => {
