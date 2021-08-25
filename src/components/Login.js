@@ -49,38 +49,47 @@ const Login = () => {
         return (
           <>
             {loading && <p>Loading...</p>}
-            <form className="signup-form" onSubmit={handleWithPopUp}>
-              <div>
-                <input
-                  id="email"
-                  name="email"
-                  type="text"
-                  value={email}
-                  placeholder="E-mail"
-                  onChange={(e) => {
-                    setEmail(e.target.value);
-                  }}
-                />
+            <section>
+              <div className="container">
+                <form className="form" id="login" onSubmit={handleWithPopUp}>
+                  <h1 className="form__title">Login</h1>
+                  <div>
+                    <input
+                      id="email"
+                      name="email"
+                      type="text"
+                      value={email}
+                      placeholder="E-mail"
+                      onChange={(e) => {
+                        setEmail(e.target.value);
+                      }}
+                    />
+                  </div>
+                  <div>
+                    <input
+                      id="password"
+                      name="password"
+                      type="password"
+                      value={password}
+                      placeholder="Password"
+                      onChange={(e) => {
+                        setPassword(e.target.value);
+                      }}
+                    />
+                  </div>
+                  {error && <div>{error}</div>}
+                  <button className="login-button" type="submit">
+                    Login
+                  </button>
+                  <div className="Account">
+                    Need an account?
+                    <Link className="signup-link" to="/signup">
+                      Sign Up
+                    </Link>
+                  </div>
+                </form>
               </div>
-              <div>
-                <input
-                  id="password"
-                  name="password"
-                  type="password"
-                  value={password}
-                  placeholder="Password"
-                  onChange={(e) => {
-                    setPassword(e.target.value);
-                  }}
-                />
-              </div>
-              {error && <div>{error}</div>}
-              <button type="submit">Login</button>
-            </form>
-            <div>
-              Need an account?
-              <Link to="/signup">Sign Up</Link>
-            </div>
+            </section>
           </>
         );
       }}

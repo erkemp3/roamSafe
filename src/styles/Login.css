@@ -1,51 +1,31 @@
-.login-form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 10px;
-  margin: 0 400px;
+section {
+  position: absolute;
+  width: 478px;
+  max-width: 478px;
+  height: 565px;
+  left: 481px;
+  top: 225px;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  background: #e5e5e5;
+  -webkit-box-shadow: 4px 4px 5px rgba(0, 0, 0, 0.25);
+  box-shadow: 4px 4px 5px rgba(0, 0, 0, 0.25);
+  border-radius: 15px;
 }
-.login-form input {
-  margin-bottom: 1rem;
-}
-.login-form input[type="text"],
-.login-form input[type="password"] {
-  padding: 0.3rem;
-  height: 25px;
-  width: 90%;
-  border: none;
-  background-color: black;
-}
+.container {
+  position: absolute;
+  width: 364px;
+  height: 462px;
+  left: 539px;
+  top: 276px;
 
-.login-button {
-  background-color: #FFFFF;
-  color: black;
-  padding: 0.6rem;
-  width: 30%;
-  border: none;
-  cursor: pointer;
-  margin: 0 400px;
+  background: #ffffff;
+  box-shadow: 3px 4px 4px rgba(0, 0, 0, 0.15);
+  border-radius: 15px;
 }
-
-.signup-button {
-  background-color: #FFFFF;
-  color: black;
-  padding: 0.6rem;
-  width: 30%;
-  border: none;
-  cursor: pointer;
-  margin: 0 400px;
+.form__title {
+  margin-bottom: 2rem;
+  text-align: center;
 }
-.google-button {
-  background-color: #black;
-  color: black;
-  padding: 0.6rem;
-  width: 30%;
-  border: none;
-  cursor: pointer;
-}
-
-.login-button:hover,
-.google-button:hover {
-  background-color: #black;
-}
+/*# sourceMappingURL=Login.css.map */

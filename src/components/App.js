@@ -38,7 +38,7 @@ function App({ countries }) {
       <div className="App">
         <Router>
           <NavBar />
-          <div className="App-header">
+          <div>
             <Switch>
               <Route exact path="/" component={Landing} />
               <PrivateRoute path="/homepage">
