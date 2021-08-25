@@ -61,7 +61,13 @@ const Signup = () => {
                 <form className="signup-form" onSubmit={handleSubmitClick}>
                   <div className="message-login-link">
                     Already a member?
+<<<<<<< HEAD
                     <Link to="/login">Log in</Link>
+=======
+                    <Link className="login-link" to="/login">
+                      LOG IN
+                    </Link>
+>>>>>>> 9243f482b54425bb8d4dff21e32de946fc269ed5
                   </div>
                   <div>
                     <input
