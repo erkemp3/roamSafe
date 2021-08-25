@@ -49,7 +49,7 @@ const Login = () => {
         return (
           <>
             {loading && <p>Loading...</p>}
-            <section>
+            <div className="login-section">
               <div className="container">
                 <form className="form" id="login" onSubmit={handleWithPopUp}>
                   <h1 className="form__title">Login</h1>
@@ -89,7 +89,7 @@ const Login = () => {
                   </div>
                 </form>
               </div>
-            </section>
+            </div>
           </>
         );
       }}
