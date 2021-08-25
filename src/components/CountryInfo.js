@@ -7,6 +7,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
+import "../styles/style.css";
 
 const CountryInfo = (props) => {
   const { country } = useParams();
@@ -68,25 +69,50 @@ const CountryInfo = (props) => {
   }
 
   return covidResult && riskFactor ? (
-    <div>
-      <p>{`Country: ${covidResult[0].country}`}</p>
-      <p>{`Confirmed Cases: ${covidResult[0].confirmed}`}</p>
-      <p>{`Deaths: ${covidResult[0].deaths}`}</p>
-      <p>{`Recovered: ${covidResult[0].recovered}`}</p>
-      <p>{data[0].unvaccinated}</p>
-      <p>{data[0].vaccinated}</p>
-      <p>{data[0].quarantine}</p>
-      <p>{data[0].masks}</p>
-      <p>{data[0].restaurants}</p>
-      <p>{data[0].bars}</p>
-      <p>{`Risk Factor: ${countryRiskFactor.advisory.score}/5`}</p>
-      <p>{countryRiskFactor.advisory.message}</p>
-      <img
-        id="flag"
-        src={`https://www.countryflags.io/${covidResult[0].code}/shiny/64.png`}
-        alt=""
-      />
-    </div>
+    <main>
+      <section id="grid">
+        <div className="box">
+          <div className="bigbox-content">
+            <p>{`Country: ${covidResult[0].country}`}</p>
+            <img
+              id="flag"
+              src={`https://www.countryflags.io/${covidResult[0].code}/shiny/64.png`}
+              alt=""
+            />
+            <p>{`Risk Factor: ${countryRiskFactor.advisory.score}/5`}</p>
+            <p>{countryRiskFactor.advisory.message}</p>
+          </div>
+        </div>
+
+        <div className="box">
+          <div className="box-content">
+            <p>{`Confirmed Cases: ${covidResult[0].confirmed}`}</p>
+            <p>{`Deaths: ${covidResult[0].deaths}`}</p>
+            <p>{`Recovered: ${covidResult[0].recovered}`}</p>
+          </div>
+        </div>
+
+        <div className="box">
+          <div className="box-content">
+            <p>{data[0].quarantine}</p>
+          </div>
+        </div>
+
+        <div className="box">
+          <div className="box-content">
+            <p>{data[0].test}</p>
+          </div>
+        </div>
+
+        <div className="box">
+          <div className="box-content">
+            <p>{data[0].masks}</p>
+            <p>{data[0].restaurants}</p>
+            <p>{data[0].bars}</p>
+          </div>
+        </div>
+      </section>
+    </main>
   ) : (
     <div className="country"> </div>
   );
