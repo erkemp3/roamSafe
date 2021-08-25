@@ -1,6 +1,10 @@
 .App {
   text-align: center;
-  justify-content: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
 }
 
 .App-header {
@@ -10,7 +14,6 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: black;
-  text-align: center;
 }
 
 .App-link {

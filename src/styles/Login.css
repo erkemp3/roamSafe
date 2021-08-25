@@ -1,5 +1,4 @@
 section {
-  position: absolute;
   width: 478px;
   max-width: 478px;
   height: 565px;
@@ -14,7 +13,6 @@ section {
   border-radius: 15px;
 }
 .container {
-  position: absolute;
   width: 364px;
   height: 462px;
   left: 539px;
