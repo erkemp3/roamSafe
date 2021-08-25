@@ -1,8 +1,4 @@
-.App {
-  text-align: center;
-}
-
-.App-header {
+/* .App-header {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -13,4 +9,12 @@
 
 .App-link {
   color: black;
+} */
+
+.App {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
 }
