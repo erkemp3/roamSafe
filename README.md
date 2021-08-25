@@ -1,13 +1,20 @@
 ## Covid Travel App
 
-This project aims to create a travel app that gives the user the latest covid infos. 
+Currently in the process of creating a travel app using React, Firebase and external APIs, that provides users with all the relevant COVID-19 information for each country before travel. 
 
 ## Technologies
 
-React.js
+* React
+* JavaScript
+* HTML
+* CSS
+* Google Firebase
+* APIs
 
 ## Packages
 
+* Axios
+* PropTypes
 
 ## Available Scripts
 
