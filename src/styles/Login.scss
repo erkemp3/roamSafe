@@ -5,8 +5,8 @@
   flex-direction: column;
   justify-content: center;
   margin: auto;
-  height: 90vh;
-  width: 100vw;
+  width: 1121px;
+  height: 663px;
   vertical-align: middle;
 }
 
@@ -20,32 +20,48 @@
   text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.07);
 }
 
-.login-section {
+#login-form {
   align-self: center;
+  display: inline-block;
+  justify-content: center;
+  margin: auto;
+  margin-left: 20px;
+  margin-bottom: 50px;
+}
+
+.login-section {
   display: flex;
   justify-content: center;
-  margin: 0;
+  align-items: center;
   width: 478px;
   height: 565px;
+  left: 481px;
+  top: 225px;
+  vertical-align: middle;
+  margin: auto;
+
   background: #e5e5e5;
-  -webkit-box-shadow: 4px 4px 5px rgba(0, 0, 0, 0.25);
   box-shadow: 4px 4px 5px rgba(0, 0, 0, 0.25);
   border-radius: 15px;
 }
 
 .login-section_small {
-  align-self: center;
   display: flex;
   justify-content: center;
+  align-items: center;
   width: 364px;
   height: 462px;
+  left: 539px;
+  top: 276px;
+  vertical-align: middle;
+
   background: #ffffff;
-  -webkit-box-shadow: 4px 4px 5px rgba(0, 0, 0, 0.25);
-  box-shadow: 4px 4px 5px rgba(0, 0, 0, 0.25);
+  box-shadow: 3px 4px 4px rgba(0, 0, 0, 0.15);
   border-radius: 15px;
 }
 
 .form__title {
+  width: 364px;
   color: #3ebbbf;
   margin-top: 2rem;
   margin-bottom: 2.5rem;
@@ -62,7 +78,7 @@ input {
 button {
   font-family: "Nunito Sans", sans-serif;
 }
-#email {
+#email-login {
   width: 300px;
   height: 55px;
   background: #fafafa;
@@ -76,9 +92,10 @@ button {
   line-height: 25px;
   color: rgba(0, 0, 0, 0.66);
   margin-bottom: 1.5em;
+  margin-left: 30px;
 }
 
-#password {
+#password-login {
   width: 300px;
   height: 55px;
   background: rgba(229, 229, 229, 0.66);
@@ -92,6 +109,7 @@ button {
   line-height: 25px;
   color: rgba(0, 0, 0, 0.66);
   margin-bottom: 1.5em;
+  margin-left: 30px;
 }
 
 .blue-login-button {
@@ -109,6 +127,7 @@ button {
   color: #ffffff;
   cursor: pointer;
   margin-bottom: 2.5em;
+  margin-left: 30px;
 }
 
 .register-div {
