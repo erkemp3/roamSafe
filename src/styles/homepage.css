@@ -4,11 +4,11 @@
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   margin: auto;
   height: 90vh;
   width: 100vw;
@@ -17,13 +17,13 @@
 
 .search-section {
   -ms-flex-item-align: center;
-      align-self: center;
+  align-self: center;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   margin: 0;
   width: 478px;
   height: 565px;
@@ -35,13 +35,13 @@
 
 .search-section_small {
   -ms-flex-item-align: center;
-      align-self: center;
+  align-self: center;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   width: 364px;
   height: 462px;
   background: #ffffff;
@@ -63,7 +63,7 @@
 
 #planepic {
   display: block;
-  margin-left: 90px;
+  margin-left: 200px;
   width: 137.38px;
   height: 58.52px;
   margin-bottom: 60px;
@@ -74,30 +74,31 @@
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   width: 323px;
   height: 69px;
   background: rgba(62, 187, 191, 0.66);
   -webkit-box-shadow: 4px 4px 5px rgba(0, 0, 0, 0.25);
-          box-shadow: 4px 4px 5px rgba(0, 0, 0, 0.25);
+  box-shadow: 4px 4px 5px rgba(0, 0, 0, 0.25);
   border-radius: 50px;
+  margin: auto;
 }
 
 .white-search-bar {
   -ms-flex-item-align: center;
-      align-self: center;
+  align-self: center;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   background: #fafafa;
   width: 289.87px;
   height: 45px;
   -webkit-box-shadow: 4px 4px 5px rgba(0, 0, 0, 0.25);
-          box-shadow: 4px 4px 5px rgba(0, 0, 0, 0.25);
+  box-shadow: 4px 4px 5px rgba(0, 0, 0, 0.25);
   border-radius: 50px;
 }
 

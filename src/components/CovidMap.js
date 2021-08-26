@@ -60,52 +60,57 @@ const CovidMap = ({ setTooltipContent }) => {
   };
 
   return (
-    <div className="covidMapContainer">
-      <ComposableMap
-        className="Map"
-        data-tip=""
-        projectionConfig={{ scale: 180 }}
-      >
-        {/* <ZoomableGroup> */}
-        <Geographies geography={geoUrl}>
-          {({ geographies }) =>
-            geographies.map((geo) => (
-              <Geography
-                key={geo.rsmKey}
-                geography={geo}
-                onMouseEnter={() => {
-                  const { NAME, ISO_A2 } = geo.properties;
-                  // console.log(riskFactor.data[ISO_A2]);
-                  // // eslint-disable-next-line no-console
-                  // // console.log(NAME);
-                  const message = riskFactor.data[ISO_A2]
-                    ? `${NAME} Risk Factor: ${riskFactor.data[ISO_A2].advisory.score}/5`
-                    : "There is no information for this country";
-                  setTooltipContent(`${NAME} - ${message}`);
-                }}
-                onMouseLeave={() => {
-                  setTooltipContent("");
-                }}
-                style={{
-                  default: {
-                    fill: "#D6D6DA",
-                    outline: "none",
-                  },
-                  hover: {
-                    fill: getHoverColor(geo),
-                    outline: "none",
-                  },
-                  pressed: {
-                    fill: "#E42",
-                    outline: "none",
-                  },
-                }}
-              />
-            ))
-          }
-        </Geographies>
-        {/* </ZoomableGroup> */}
-      </ComposableMap>
+    <div className="covidMap-page">
+      <div className="covidMap-BigContainer">
+        <div className="covidMapContainer">
+          <ComposableMap
+            className="Map"
+            data-tip=""
+            projectionConfig={{ scale: 210 }}
+          >
+            {/* <ZoomableGroup> */}
+            <Geographies geography={geoUrl}>
+              {({ geographies }) =>
+                geographies.map((geo) => (
+                  <Geography
+                    className="info-message"
+                    key={geo.rsmKey}
+                    geography={geo}
+                    onMouseEnter={() => {
+                      const { NAME, ISO_A2 } = geo.properties;
+                      // console.log(riskFactor.data[ISO_A2]);
+                      // // eslint-disable-next-line no-console
+                      // // console.log(NAME);
+                      const message = riskFactor.data[ISO_A2]
+                        ? `${NAME} Risk Factor: ${riskFactor.data[ISO_A2].advisory.score}/5`
+                        : "There is no information for this country";
+                      setTooltipContent(`${NAME} - ${message}`);
+                    }}
+                    onMouseLeave={() => {
+                      setTooltipContent("");
+                    }}
+                    style={{
+                      default: {
+                        fill: "#D6D6DA",
+                        outline: "none",
+                      },
+                      hover: {
+                        fill: getHoverColor(geo),
+                        outline: "none",
+                      },
+                      pressed: {
+                        fill: "#E42",
+                        outline: "none",
+                      },
+                    }}
+                  />
+                ))
+              }
+            </Geographies>
+            {/* </ZoomableGroup> */}
+          </ComposableMap>
+        </div>
+      </div>
     </div>
   );
 };

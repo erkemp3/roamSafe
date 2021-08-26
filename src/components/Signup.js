@@ -56,15 +56,10 @@ const Signup = () => {
         return (
           <>
             {() => <p>Welcome! </p>}
+            <h1 className="app-title">roamFree</h1>
             <div className="signup-section">
               <div className="signup-container">
                 <form className="signup-form" onSubmit={handleSubmitClick}>
-                  <div className="message-login-link">
-                    Already a member?
-                    <Link className="login-link" to="/login">
-                      LOG IN
-                    </Link>
-                  </div>
                   <div>
                     <input
                       id="name"
@@ -115,8 +110,14 @@ const Signup = () => {
                   </div>
                   {error && <div>{error}</div>}
                   <button className="signup-button" type="submit">
-                    Sign Up
+                    SIGN UP
                   </button>
+                  <div className="message-login-link">
+                    Already a member?
+                    <Link className="login-link" to="/login">
+                      LOG IN
+                    </Link>
+                  </div>
                 </form>
               </div>
             </div>
