@@ -7,7 +7,14 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
-import "../styles/style.css";
+import "../styles/CountryInfo.css";
+import orangeTriangle from "../images/orange-triangle.png";
+import redTriangle from "../images/red-triangle.png";
+import greenTick from "../images/green-tick.png";
+import policyIcon from "../images/policy-icon.png";
+import quarantineIcon from "../images/quarantine-icon.png";
+import testIcon from "../images/test-icon.png";
+import virusIcon from "../images/virus-icon.png";
 
 const CountryInfo = (props) => {
   const { country } = useParams();
@@ -65,54 +72,160 @@ const CountryInfo = (props) => {
 
   if (covidResult && riskFactor) {
     countryRiskFactor = riskFactor.data[covidResult[0].code];
-    console.log(countryRiskFactor);
   }
 
+  const getRiskFactorColor = () => {
+    if (!riskFactor) {
+      return "#D6D6DA";
+    }
+
+    if (countryRiskFactor.advisory.score >= 4.5) {
+      return "#FF1A0CCC";
+    }
+    if (countryRiskFactor.advisory.score >= 3.5) {
+      return "#ff8400";
+    }
+    if (countryRiskFactor.advisory.score < 3.5) {
+      return "#3EBBBF";
+    }
+    return "#D6D6DA";
+  };
+
+  const getAdvisoryMessage = () => {
+    if (!riskFactor) {
+      return "No data available";
+    }
+    if (countryRiskFactor.advisory.score >= 4.5) {
+      return "Reconsider travelling";
+    }
+    if (countryRiskFactor.advisory.score >= 3.5) {
+      return "Travel with caution";
+    }
+    if (countryRiskFactor.advisory.score < 3.5) {
+      return "Safe to travel";
+    }
+    return "No data available";
+  };
+
+  const getAdvisoryIcon = () => {
+    if (!riskFactor) {
+      return "";
+    }
+    if (countryRiskFactor.advisory.score >= 4.5) {
+      return redTriangle;
+    }
+    if (countryRiskFactor.advisory.score >= 3.5) {
+      return orangeTriangle;
+    }
+    if (countryRiskFactor.advisory.score < 3.5) {
+      return greenTick;
+    }
+    return "";
+  };
+
+  const numberWithCommas = (x) => {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  };
+
   return covidResult && riskFactor ? (
-    <main>
+    <div className="container">
       <section id="grid">
         <div className="box">
           <div className="bigbox-content">
-            <p>{`Country: ${covidResult[0].country}`}</p>
+            <p className="country-name">{`${covidResult[0].country}`}</p>
             <img
               id="flag"
-              src={`https://www.countryflags.io/${covidResult[0].code}/shiny/64.png`}
+              src={`https://www.countryflags.io/${covidResult[0].code}/flat/64.png`}
               alt=""
             />
-            <p>{`Risk Factor: ${countryRiskFactor.advisory.score}/5`}</p>
-            <p>{countryRiskFactor.advisory.message}</p>
+            <p className="global-risk"> Global Risk Score:</p>
+            <div className="global-risk-score">
+              <p className="risk-score" style={{ color: getRiskFactorColor() }}>
+                {`${countryRiskFactor.advisory.score}`}
+              </p>
+              <p className="risk-score-end">out of 5</p>
+            </div>
+            <div className="advisory-section">
+              <img id="message-icon" src={getAdvisoryIcon()} alt="" />
+              <p
+                className="advisory-message"
+                style={{ color: getRiskFactorColor() }}
+              >
+                {getAdvisoryMessage()}
+              </p>
+            </div>
           </div>
         </div>
 
         <div className="box">
           <div className="box-content">
-            <p>{`Confirmed Cases: ${covidResult[0].confirmed}`}</p>
-            <p>{`Deaths: ${covidResult[0].deaths}`}</p>
-            <p>{`Recovered: ${covidResult[0].recovered}`}</p>
+            <img id="icons" src={virusIcon} alt="" />
+            <div className="info-box">
+              <p className="info-box-header">COVID-19 Status</p>
+              <div className="data">
+                <p className="mini-header">Confirmed Cases:</p>
+                <p className="number">
+                  {numberWithCommas(covidResult[0].confirmed)}
+                </p>
+              </div>
+              <div className="data">
+                <p className="mini-header">Deaths:</p>
+                <p className="number">
+                  {numberWithCommas(covidResult[0].deaths)}
+                </p>
+              </div>
+              <div className="data">
+                <p className="mini-header">Recovered:</p>
+                <p className="number">
+                  {numberWithCommas(covidResult[0].recovered)}
+                </p>
+              </div>
+            </div>
           </div>
         </div>
 
         <div className="box">
           <div className="box-content">
-            <p>{data[0].quarantine}</p>
+            <img id="icons" src={quarantineIcon} alt="" />
+            <div className="info-box">
+              <p className="info-box-header">Quarantine</p>
+              <p className="quarantine-data">{data[0].quarantine}</p>
+            </div>
           </div>
         </div>
 
         <div className="box">
           <div className="box-content">
-            <p>{data[0].test}</p>
+            <img id="icons" src={testIcon} alt="" />
+            <div className="info-box">
+              <p className="info-box-header">Testing</p>
+              <p className="test-data">{data[0].test}</p>
+            </div>
           </div>
         </div>
 
         <div className="box">
           <div className="box-content">
-            <p>{data[0].masks}</p>
-            <p>{data[0].restaurants}</p>
-            <p>{data[0].bars}</p>
+            <img id="icons" src={policyIcon} alt="" />
+            <div className="info-box">
+              <p className="info-box-header">Policy</p>
+              <div className="policy-data">
+                <p className="mini-header-1">Masks:</p>
+                <p className="data-string-1">{data[0].masks}</p>
+              </div>
+              <div className="policy-data-2">
+                <p className="mini-header">Restaurants:</p>
+                <p className="data-string-2">{data[0].restaurants}</p>
+              </div>
+              <div className="policy-data-3">
+                <p className="mini-header">Bars:</p>
+                <p className="data-string-3">{data[0].bars}</p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
-    </main>
+    </div>
   ) : (
     <div className="country"> </div>
   );
