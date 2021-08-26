@@ -54,11 +54,15 @@ const Login = () => {
               <h1 className="app-title">roamFree</h1>
               <div className="login-section">
                 <div className="login-section_small">
-                  <form className="form" id="login" onSubmit={handleWithPopUp}>
+                  <form
+                    className="form"
+                    id="login-form"
+                    onSubmit={handleWithPopUp}
+                  >
                     <h2 className="form__title">SIGN IN</h2>
                     <div>
                       <input
-                        id="email"
+                        id="email-login"
                         name="email"
                         type="text"
                         value={email}
@@ -70,7 +74,7 @@ const Login = () => {
                     </div>
                     <div>
                       <input
-                        id="password"
+                        id="password-login"
                         name="password"
                         type="password"
                         value={password}
