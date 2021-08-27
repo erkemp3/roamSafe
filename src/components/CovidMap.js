@@ -15,12 +15,16 @@ import {
 
 import axios from "axios";
 import "../styles/CovidMap.css";
+import { useHistory } from "react-router-dom";
 
 const geoUrl =
   "https://raw.githubusercontent.com/zcreativelabs/react-simple-maps/master/topojson-maps/world-110m.json";
 
 const CovidMap = ({ setTooltipContent }) => {
   const [riskFactor, setRiskFactor] = useState(undefined);
+  const [countryName, setCountryName] = useState("");
+
+  const history = useHistory();
 
   useEffect(() => {
     axios
@@ -76,18 +80,22 @@ const CovidMap = ({ setTooltipContent }) => {
                       className="info-message"
                       key={geo.rsmKey}
                       geography={geo}
+                      onClick={() => {
+                        if (countryName) {
+                          history.push(`/country-info/${countryName}`);
+                        }
+                      }}
                       onMouseEnter={() => {
                         const { NAME, ISO_A2 } = geo.properties;
-                        // console.log(riskFactor.data[ISO_A2]);
-                        // // eslint-disable-next-line no-console
-                        // // console.log(NAME);
                         const message = riskFactor.data[ISO_A2]
                           ? `${NAME} Risk Factor: ${riskFactor.data[ISO_A2].advisory.score}/5`
                           : "There is no information for this country";
                         setTooltipContent(`${NAME} - ${message}`);
+                        setCountryName(NAME);
                       }}
                       onMouseLeave={() => {
                         setTooltipContent("");
+                        setCountryName("");
                       }}
                       style={{
                         default: {
