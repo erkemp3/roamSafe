@@ -6,6 +6,7 @@
   width: 100%;
   border: 5px rgba(0, 0, 0, 0.12);
   box-shadow: 3px 4px 4px rgba(0, 0, 0, 0.15);
+  height: 55px;
 }
 
 .navbar-links {

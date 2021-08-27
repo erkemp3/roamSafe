@@ -7,6 +7,7 @@ import { Link, useHistory, Redirect } from "react-router-dom";
 import firebase from "firebase";
 import { FirebaseAuthConsumer } from "@react-firebase/auth";
 import "../styles/Signup.css";
+import appLogo from "../images/appLogo.png";
 
 const Signup = () => {
   const [userName, setUserName] = useState("");
@@ -40,7 +41,7 @@ const Signup = () => {
         await signup();
         history.push("/");
       } catch (e) {
-        setError("Failed to create account");
+        setError(<div className="error-message">Failed to create account</div>);
       } finally {
         setLoading(false);
       }
@@ -56,7 +57,10 @@ const Signup = () => {
         return (
           <>
             {() => <p>Welcome! </p>}
-            <h1 className="app-title">roamFree</h1>
+            <div className="signup-header">
+              <h1 className="app-title">roamFree</h1>
+              <img id="app-logo" src={appLogo} alt="" />
+            </div>
             <div className="signup-section">
               <div className="signup-container">
                 <form className="signup-form" onSubmit={handleSubmitClick}>

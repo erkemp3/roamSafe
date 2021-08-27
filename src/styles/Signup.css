@@ -1,3 +1,25 @@
+.signup-header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.error-message {
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 15px;
+  text-align: center;
+  margin-bottom: 5px;
+  color: rgba(0, 0, 0, 0.66);
+  font-weight: bold;
+}
+
 .app-title {
   text-align: center;
   margin-top: 65px;

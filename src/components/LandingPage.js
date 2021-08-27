@@ -3,6 +3,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "../styles/LandingPage.css";
+import appLogo from "../images/appLogo.png";
 
 export default function Landing() {
   return (
@@ -10,10 +11,11 @@ export default function Landing() {
       <div className="landing-container">
         <div className="small-container-landing">
           <div className="landing-message">
-            <h2>roamFree</h2>
-            <h3>
-              The first app that helps you travel internationally, covid safe.
-            </h3>
+            <div className="landing-header">
+              <h2>roamFree</h2>
+              <img id="landing-app-logo" src={appLogo} alt="" />
+            </div>
+            <h3>An app to help you travel internationally, covid safe.</h3>
             <div className="landing-links">
               <div>
                 <Link className="signup-link-landing" to="/signup">
