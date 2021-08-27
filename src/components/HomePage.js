@@ -6,17 +6,27 @@ import { useHistory } from "react-router-dom";
 import "../styles/homepage.css";
 import planepic from "../images/planepic.png";
 import searchicon from "../images/search.png";
+import countryList from "../data/countryNames";
 
 export default function HomePage() {
   const [input, setInput] = useState("");
+  const [error, setError] = useState(false);
 
   const history = useHistory();
 
   const search = (event) => {
     event.preventDefault();
-    history.push(`/country-info/${input}`);
+    if (!countryList.includes(input)) {
+      setError(true);
+    } else {
+      history.push(`/country-info/${input}`);
+    }
   };
 
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+
+  // };
   return (
     <div className="container">
       <div className="search-section">
@@ -37,6 +47,7 @@ export default function HomePage() {
                 <button className="search-button" type="submit">
                   <img id="search-icon" src={searchicon} alt="" />
                 </button>
+                {error && <p>Country does not exist - please check spelling</p>}
               </div>
             </div>
           </form>

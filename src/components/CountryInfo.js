@@ -5,7 +5,7 @@
 /* eslint-disable arrow-body-style */
 /* eslint-disable quotes */
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Redirect } from "react-router-dom";
 import axios from "axios";
 import "../styles/CountryInfo.css";
 import orangeTriangle from "../images/orange-triangle.png";
@@ -63,6 +63,8 @@ const CountryInfo = (props) => {
   let data;
 
   console.log(covidResult);
+
+  const dataUnavailable = <p>Data unavailable</p>;
 
   if (covidResult) {
     data = countries.filter((x) => x.name === covidResult[0].country);
@@ -189,7 +191,11 @@ const CountryInfo = (props) => {
             <img id="icons" src={quarantineIcon} alt="" />
             <div className="info-box">
               <p className="info-box-header">Quarantine</p>
-              <p className="quarantine-data">{data[0].quarantine}</p>
+              {data[0] ? (
+                <p className="quarantine-data">{data[0].quarantine}</p>
+              ) : (
+                dataUnavailable
+              )}
             </div>
           </div>
         </div>
@@ -199,7 +205,11 @@ const CountryInfo = (props) => {
             <img id="icons" src={testIcon} alt="" />
             <div className="info-box">
               <p className="info-box-header">Testing</p>
-              <p className="test-data">{data[0].test}</p>
+              {data[0] ? (
+                <p className="test-data">{data[0].test}</p>
+              ) : (
+                dataUnavailable
+              )}
             </div>
           </div>
         </div>
@@ -211,15 +221,27 @@ const CountryInfo = (props) => {
               <p className="info-box-header">Policy</p>
               <div className="policy-data">
                 <p className="mini-header-1">Masks:</p>
-                <p className="data-string-1">{data[0].masks}</p>
+                {data[0] ? (
+                  <p className="data-string-1">{data[0].masks}</p>
+                ) : (
+                  dataUnavailable
+                )}
               </div>
               <div className="policy-data-2">
                 <p className="mini-header">Restaurants:</p>
-                <p className="data-string-2">{data[0].restaurants}</p>
+                {data[0] ? (
+                  <p className="data-string-2">{data[0].restaurants}</p>
+                ) : (
+                  dataUnavailable
+                )}
               </div>
               <div className="policy-data-3">
                 <p className="mini-header">Bars:</p>
-                <p className="data-string-3">{data[0].bars}</p>
+                {data[0] ? (
+                  <p className="data-string-3">{data[0].bars}</p>
+                ) : (
+                  dataUnavailable
+                )}
               </div>
             </div>
           </div>
