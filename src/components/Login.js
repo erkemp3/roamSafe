@@ -1,3 +1,4 @@
+/* eslint-disable comma-dangle */
 /* eslint-disable no-console */
 /* eslint-disable no-unused-vars */
 /* eslint-disable quotes */
@@ -6,6 +7,7 @@ import { Link, useHistory, Redirect } from "react-router-dom";
 import firebase from "firebase";
 import { FirebaseAuthConsumer } from "@react-firebase/auth";
 import "../styles/Login.css";
+import appLogo from "../images/appLogo.png";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -34,7 +36,9 @@ const Login = () => {
       await login();
       history.push("/homepage");
     } catch (e) {
-      setError("Log in failed - please try again");
+      setError(
+        <div className="error-message">Log in failed - please try again</div>
+      );
     } finally {
       setLoading(false);
     }
@@ -48,12 +52,15 @@ const Login = () => {
         }
         return (
           <>
-            {loading && <p>Loading...</p>}
+            {loading && <p className="loading">Loading...</p>}
 
             <div className="container">
-              <h1 className="app-title">roamFree</h1>
+              <div className="title-header">
+                <h1 className="app-title">roamFree</h1>
+                <img id="app-logo" src={appLogo} alt="" />
+              </div>
               <div className="login-section">
-                <div className="login-section_small">
+                <div className="login-container">
                   <form
                     className="form"
                     id="login-form"
