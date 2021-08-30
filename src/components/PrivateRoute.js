@@ -16,7 +16,7 @@ const PrivateRoute = ({ children, ...rest }) => {
     return unsubscribe;
   }, []);
   if (loading) {
-    return <p>Loading</p>;
+    return <p className="loading">Loading</p>;
   }
   return (
     <FirebaseAuthConsumer>

@@ -29,7 +29,14 @@ const config = {
   messagingSenderId: "87295273544",
   appId: "1:87295273544:web:53aa041e58966f6a98c67d",
   measurementId: "G-H7C0CK2SNZ",
+  databaseURL:
+    "https://roamfree-dad3a-default-rtdb.europe-west1.firebasedatabase.app/",
 };
+
+// const app = initializeApp(config);
+
+// firebase.initializeApp(config);
+// const database = firebase.database();
 
 function App({ countries }) {
   const [content, setContent] = useState("");

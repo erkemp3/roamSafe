@@ -41,8 +41,12 @@ section {
       border-radius: 15px;
       width: 520px;
       height: 150px;
+      transition: all 0.2s ease-in-out;
     }
-
+    .box-content:hover {
+      transform: scale(1.02);
+      cursor: pointer;
+    }
     .info-box {
       align-self: center;
       margin-right: 20px;
@@ -65,7 +69,7 @@ section {
     .data {
       display: flex;
       flex-direction: row;
-      max-height: 30px;
+      max-height: 25px;
       font-size: 16px;
     }
 
@@ -95,8 +99,16 @@ section {
         width: 650px;
         height: 600px;
         margin-left: 15px;
+        transition: all 0.2s ease-in-out;
+      }
+
+      .bigbox-content:hover {
+        transform: scale(1.02);
+        cursor: pointer;
       }
       .country-name {
+        font-family: "Poppins", sans-serif;
+        height: 65px;
         align-self: center;
         text-transform: uppercase;
         font-weight: 500;
@@ -104,7 +116,8 @@ section {
         line-height: 65px;
         color: rgba(0, 0, 0, 0.79);
         text-shadow: 0px 3px 3px rgba(0, 0, 0, 0.25);
-        margin-bottom: 40px;
+        margin-bottom: 25px;
+        margin-top: 40px;
       }
       #flag {
         align-self: center;
@@ -118,13 +131,17 @@ section {
         font-size: 36px;
         color: rgba(0, 0, 0, 0.67);
         // text-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
-        margin-bottom: 5px;
+        margin-top: 25px;
+        margin-bottom: 25px;
       }
       .global-risk-score {
         display: flex;
+        height: 65px;
         justify-content: center;
         flex-direction: row;
         color: rgba(0, 0, 0, 0.67);
+        margin-bottom: 25px;
+
         // text-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
       }
       .risk-score {
@@ -132,6 +149,8 @@ section {
         font-weight: bold;
         align-self: center;
         margin-right: 5px;
+        margin-top: auto;
+        margin-bottom: auto;
       }
       .risk-score-end {
         font-size: 25px;
@@ -140,8 +159,10 @@ section {
       }
       .advisory-section {
         display: flex;
+        height: 65px;
         justify-content: center;
         flex-direction: row;
+        margin-bottom: 40px;
       }
       #message-icon {
         align-self: center;
@@ -173,6 +194,7 @@ section {
       margin-bottom: 15px;
       .test-data {
         font-size: 14px;
+
         margin-top: 0px;
       }
     }
@@ -183,21 +205,18 @@ section {
         color: rgba(0, 0, 0, 0.67);
         font-weight: 600;
         align-self: center;
-        margin-top: 5px;
       }
       .policy-data {
         display: flex;
         flex-direction: row;
-        max-height: 40px;
+        max-height: 25px;
         font-size: 16px;
-        margin-bottom: 10px;
       }
       .policy-data-2 {
         display: flex;
         flex-direction: row;
         max-height: 25px;
         font-size: 16px;
-        margin-top: 5px;
       }
       .policy-data-3 {
         display: flex;
@@ -210,8 +229,6 @@ section {
         align-self: center;
         font-size: 16px;
         margin-left: 10px;
-        margin-top: 12px;
-        margin-bottom: 0px;
       }
       .data-string-2 {
         align-self: center;
@@ -225,4 +242,15 @@ section {
       }
     }
   }
+}
+
+.data-unavailable-large {
+  font-size: 16px;
+  margin-top: 10px;
+}
+
+.data-unavailable-small {
+  align-self: center;
+  font-size: 16px;
+  margin-left: 10px;
 }

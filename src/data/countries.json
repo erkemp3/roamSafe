@@ -6,7 +6,7 @@
       "vaccinated": "Vaccinated visitors from the United Kingdom can enter Spain without restrictions.",
       "test": "Unvaccinated visitors from the United Kingdom must present a negative RT-PCR (NAAT) or Antigen (quick-test) test taken 72 hours before departing to Spain. Fully vaccinated visitors with approved vaccination certificates do not need to present a negative COVID-19 test.",
       "quarantine": "Visitors from the United Kingdom are not required to quarantine after entering Spain.",
-      "masks": "Required in enclosed environments and public transportation.",
+      "masks": "Required",
       "restaurants": "Open with restrictions",
       "bars": "Open with restrictions"
     },
@@ -16,7 +16,7 @@
       "vaccinated": "Vaccinated visitors from the United Kingdom can enter Portugal without restrictions.",
       "test": "Unvaccinated visitors from the United Kingdom must present a negative RT-PCR (NAAT) test taken 72 hours before departing to Portugal. Fully vaccinated visitors with approved vaccination certificates do not need to present a negative COVID-19 test.",
       "quarantine": "Unvaccinated visitors from the United Kingdom will need to quarantine for 14 days upon entering Portugal. Fully vaccinated visitors with approved vaccination certificates do not need to quarantine.",
-      "masks": "Required in public spaces, enclosed environments and public transportation.",
+      "masks": "Required",
       "restaurants": "Open with restrictions",
       "bars": "Open with restrictions"
     },
@@ -26,7 +26,7 @@
       "vaccinated": "Fully vaccinated visitors from the United Kingdom can enter France without restrictions.",
       "test": "Unvaccinated visitors from the United Kingdom must present a negative Antigen (quick-test) test taken 24 hours before departing to France. Fully vaccinated visitors with approved vaccination certificates do not need to present a negative COVID-19 test.",
       "quarantine": "Unvaccinated visitors from the United Kingdom will need to quarantine for 7 days upon entering France. Fully vaccinated visitors with approved vaccination certificates do not need to quarantine.",
-      "masks": "Required in enclosed environments and public transportation.",
+      "masks": "Required",
       "restaurants": "Open with restrictions",
       "bars": "Open with restrictions"
     },
@@ -36,7 +36,7 @@
       "vaccinated": "Fully vaccinated visitors with approved vaccination certificates do not need to quarantine.",
       "test": "Visitors from the United Kingdom must present a negative RT-PCR (NAAT) or Antigen (quick-test) test taken 48 OR 72 hours before departing to Italy.",
       "quarantine": "Visitors from the United Kingdom will need to quarantine for 5 days upon entering Italy.",
-      "masks": "Required in enclosed environments.",
+      "masks": "Required",
       "restaurants": "Open with restrictions",
       "bars": "Open with restrictions"
     },
@@ -46,7 +46,7 @@
       "vaccinated": "Fully vaccinated visitors from the United Kingdom can enter Greece without restrictions.",
       "test": "Unvaccinated visitors from the United Kingdom must present a negative RT-PCR (NAAT) or Antigen (quick-test) test taken 72 for RT-PCR (NAAT) and 48 Antigen (quick-test) hours before departing to Greece. Fully vaccinated visitors with approved vaccination certificates do not need to present a negative COVID-19 test.",
       "quarantine": "Visitors from the United Kingdom are not required to quarantine after entering Greece.",
-      "masks": "Required in public spaces and enclosed environments.",
+      "masks": "Required",
       "restaurants": "Open with restrictions",
       "bars": "Open with restrictions"
     },
@@ -56,7 +56,7 @@
       "vaccinated": "Fully vaccinated visitors from the United Kingdom can enter Germany without restrictions.",
       "test": "Unvaccinated visitors from the United Kingdom must present a negative RT-PCR (NAAT) or Antigen (quick-test) test taken 72 for RT-PCR (NAAT) and 48 Antigen (quick-test) hours before departing to Greece. Fully vaccinated visitors with approved vaccination certificates do not need to present a negative COVID-19 test.",
       "quarantine": "Unvaccinated visitors from the United Kingdom will need to quarantine for 10 days upon entering Germany. Fully vaccinated visitors with approved vaccination certificates do not need to quarantine.",
-      "masks": "Required in enclosed environments and public transportation.",
+      "masks": "Required",
       "restaurants": "Open with restrictions",
       "bars": "Open with restrictions"
     },
@@ -66,7 +66,7 @@
       "vaccinated": "Fully vaccinated visitors from the United Kingdom can enter Germany without restrictions.",
       "test": "Visitors from the United Kingdom must present a negative RT-PCR (NAAT) or Antigen (quick-test) test taken 72 hours before departing to the United States.",
       "quarantine": "Visitors from the United Kingdom are not required to quarantine after entering the United States.",
-      "masks": "Recommended in public spaces and public transportation.",
+      "masks": "Recommended",
       "restaurants": "Open with restrictions",
       "bars": "Open with restrictions"
     },
@@ -74,7 +74,7 @@
       "name": "Ireland",
       "test": "Unvaccinated visitors from the United Kingdom must present a negative RT-PCR (NAAT) test taken 72 hours before departing to Ireland. Fully vaccinated visitors with approved vaccination certificates do not need to present a negative COVID-19 test.",
       "quarantine": "Unvaccinated visitors from the United Kingdom will need to quarantine for 14 days upon entering Ireland. Fully vaccinated visitors with approved vaccination certificates do not need to quarantine.",
-      "masks": "Required in public spaces, enclosed environments and public transportation.",
+      "masks": "Required",
       "restaurants": "Open with restrictions",
       "bars": "Open with restrictions"
     }

@@ -40,7 +40,6 @@ const CovidMap = ({ setTooltipContent }) => {
         console.log(error);
       });
   }, []);
-  console.log(riskFactor);
 
   const getHoverColor = (geo) => {
     const { ISO_A2 } = geo.properties;
@@ -54,7 +53,7 @@ const CovidMap = ({ setTooltipContent }) => {
         return "#F53";
       }
       if (score >= 3.5) {
-        return "#FFBF00";
+        return "#ffa442";
       }
       if (score < 3.5) {
         return "#3f5";
@@ -65,6 +64,11 @@ const CovidMap = ({ setTooltipContent }) => {
 
   return (
     <div className="covidMap-page">
+      <p className="covidMap-title">COVID-19 ZOOMABLE MAP</p>
+      <p className="covidMap-info">
+        Click and drag to pan map ⬩ Hover over country to see risk factor ⬩
+        Click on country for further COVID-19 info
+      </p>
       <div className="covidMap-BigContainer">
         <div className="covidMapContainer">
           <ComposableMap
@@ -81,15 +85,19 @@ const CovidMap = ({ setTooltipContent }) => {
                       key={geo.rsmKey}
                       geography={geo}
                       onClick={() => {
-                        if (countryName) {
+                        if (countryName === "Dem. Rep. Congo") {
+                          history.push(`/country-info/DRC`);
+                        } else if (countryName === "Central African Rep.") {
+                          history.push(`/country-info/CAR`);
+                        } else if (countryName) {
                           history.push(`/country-info/${countryName}`);
                         }
                       }}
                       onMouseEnter={() => {
                         const { NAME, ISO_A2 } = geo.properties;
                         const message = riskFactor.data[ISO_A2]
-                          ? `${NAME} Risk Factor: ${riskFactor.data[ISO_A2].advisory.score}/5`
-                          : "There is no information for this country";
+                          ? `Risk Factor: ${riskFactor.data[ISO_A2].advisory.score}/5`
+                          : "Data unavailable";
                         setTooltipContent(`${NAME} - ${message}`);
                         setCountryName(NAME);
                       }}

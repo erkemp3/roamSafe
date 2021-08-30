@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import "../styles/NavBar.css";
 import { FirebaseAuthConsumer } from "@react-firebase/auth";
 import firebase from "firebase";
+import appLogo from "../images/appLogo.png";
 
 const NavBar = () => {
   const logout = async () => {
@@ -42,6 +43,10 @@ const NavBar = () => {
           }}
         </FirebaseAuthConsumer>
       </ul>
+      <div className="navbar-right">
+        {/* <p className="navbar-title">roamSafe</p> */}
+        <img id="navbar-logo" src={appLogo} alt="" />
+      </div>
     </div>
   );
 };
