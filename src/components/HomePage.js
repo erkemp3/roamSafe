@@ -32,14 +32,17 @@ export default function HomePage() {
       <div className="search-section">
         <div className="search-section_small">
           <form className="search-box" onSubmit={search}>
-            <h2 className="search-title">Welcome Ellie</h2>
+            <h2 className="search-title">Welcome </h2>
             <img id="planepic" src={planepic} alt="" />
             <h3 className="search-question">Where are you headed?</h3>
             <div className="blue-search-bar">
               <div className="white-search-bar">
                 <input
                   value={input}
-                  onChange={(e) => setInput(e.target.value)}
+                  onChange={(e) => {
+                    setInput(e.target.value);
+                    setError(false);
+                  }}
                   className="search-input"
                   type="text"
                   placeholder="e.g. Portugal"
