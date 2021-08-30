@@ -1,7 +1,8 @@
 .signup-header {
+  margin-top: 40px;
   display: flex;
-  flex-direction: row;
   justify-content: center;
+  align-items: row;
 }
 
 .error-message {
@@ -14,11 +15,13 @@
 }
 
 .app-title {
-  text-align: center;
-  margin-top: 65px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  align-self: flex-end;
+  margin: 0;
+  margin-left: 20px;
   font-size: 72px;
   line-height: 98px;
-  font-weight: normal;
   color: #3ebbbf;
   text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.07);
 }
@@ -66,17 +69,15 @@
   height: 21px;
   left: 573px;
   top: 300px;
-
-  font-family: Nunito Sans;
+  font-family: "Poppins", sans-serif;
   font-style: normal;
   font-weight: 600;
   font-size: 17px;
   line-height: 23px;
   text-align: left;
-  margin-left: 40px;
+  margin-left: 28px;
   margin-top: 10px;
-
-  color: rgba(238, 178, 22, 0.66);
+  color: #ff8400;
 }
 .form__title {
   margin-bottom: 2rem;
@@ -84,7 +85,7 @@
 }
 
 .login-link {
-  font-family: Nunito Sans;
+  font-family: "Poppins", sans-serif;
   font-style: normal;
   font-weight: bold;
   font-size: 17px;
@@ -108,6 +109,11 @@
   color: rgba(0, 0, 0, 0.66);
   margin-bottom: 1.5em;
 }
+
+#name:focus {
+  outline: none;
+}
+
 #email {
   width: 300px;
   height: 50px;
@@ -123,10 +129,15 @@
   color: rgba(0, 0, 0, 0.66);
   margin-bottom: 1.5em;
 }
+
+#email:focus {
+  outline: none;
+}
+
 #password {
   width: 300px;
   height: 50px;
-  background: #fafafa;
+  background: rgba(229, 229, 229, 0.66);
   mix-blend-mode: normal;
   border: 1px solid rgba(0, 0, 0, 0.12);
   box-sizing: border-box;
@@ -138,10 +149,15 @@
   color: rgba(0, 0, 0, 0.66);
   margin-bottom: 1.5em;
 }
+
+#password:focus {
+  outline: none;
+}
+
 #passwordConfirm {
   width: 300px;
   height: 50px;
-  background: #fafafa;
+  background: rgba(229, 229, 229, 0.66);
   mix-blend-mode: normal;
   border: 1px solid rgba(0, 0, 0, 0.12);
   box-sizing: border-box;
@@ -153,7 +169,12 @@
   color: rgba(0, 0, 0, 0.66);
   margin-bottom: 1.5em;
 }
+
+#passwordConfirm:focus {
+  outline: none;
+}
 .signup-button {
+  font-family: "Poppins", sans-serif;
   width: 300px;
   height: 55px;
   background: rgba(62, 187, 191, 0.66);
@@ -168,4 +189,10 @@
   color: #ffffff;
   cursor: pointer;
   margin-bottom: 0;
+  transition: all 0.2s ease-in-out;
+}
+
+.signup-button:hover {
+  transform: scale(1.05);
+  cursor: pointer;
 }

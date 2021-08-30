@@ -24,6 +24,10 @@
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   margin: 0;
   width: 478px;
   height: 565px;
@@ -51,14 +55,18 @@
 }
 
 .search-title {
+  font-family: "Poppins", sans-serif;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
   text-align: center;
   font-size: 45px;
   line-height: 61px;
   color: #3ebbbf;
-  font-weight: 300;
   text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.07);
   margin-top: 50px;
   margin-bottom: 50px;
+  font-weight: 500;
 }
 
 #planepic {
@@ -68,7 +76,20 @@
   margin-left: 90px;
   width: 137.38px;
   height: 58.52px;
+  margin-bottom: 35px;
+}
+
+.search-question {
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  font-family: "Poppins", sans-serif;
+  text-align: center;
+  font-size: 22px;
+  color: #ff8400;
+  text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.05);
   margin-bottom: 30px;
+  font-weight: 500;
 }
 
 .blue-search-bar {
@@ -92,9 +113,8 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
   background: #fafafa;
   width: 289.87px;
   height: 45px;
@@ -103,22 +123,38 @@
   border-radius: 50px;
 }
 
-.search-question {
-  text-align: center;
-  font-size: 22px;
-  color: rgba(238, 178, 22, 0.66);
-  text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.05);
-  margin-bottom: 30px;
+.search-input,
+.search-button {
+  -ms-flex-preferred-size: 80% 20%;
+      flex-basis: 80% 20%;
 }
 
 .search-input {
+  -ms-flex-item-align: start;
+      align-self: flex-start;
+  margin-left: 20px;
   background: #fafafa;
   border: none;
   height: 40px;
   border-radius: 50px;
+  font-size: 15px;
+}
+
+.search-input:focus {
+  outline: none;
+}
+
+.homepage-error {
+  margin-top: 20px;
+  font-size: 15px;
+  text-align: center;
 }
 
 .search-button {
+  text-align: right;
+  margin-left: auto;
+  margin-right: 15px;
+  margin-top: 5px;
   background: #fafafa;
   border: none;
   border-radius: 50px;

@@ -70,6 +70,14 @@ section {
   border-radius: 15px;
   width: 520px;
   height: 150px;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+
+#grid .box .box-content:hover {
+  -webkit-transform: scale(1.02);
+          transform: scale(1.02);
+  cursor: pointer;
 }
 
 #grid .box .info-box {
@@ -103,7 +111,7 @@ section {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  max-height: 30px;
+  max-height: 25px;
   font-size: 16px;
 }
 
@@ -150,9 +158,19 @@ section {
   width: 650px;
   height: 600px;
   margin-left: 15px;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+
+#grid .box:nth-child(1) .bigbox-content:hover {
+  -webkit-transform: scale(1.02);
+          transform: scale(1.02);
+  cursor: pointer;
 }
 
 #grid .box:nth-child(1) .country-name {
+  font-family: "Poppins", sans-serif;
+  height: 65px;
   -ms-flex-item-align: center;
       -ms-grid-row-align: center;
       align-self: center;
@@ -162,7 +180,8 @@ section {
   line-height: 65px;
   color: rgba(0, 0, 0, 0.79);
   text-shadow: 0px 3px 3px rgba(0, 0, 0, 0.25);
-  margin-bottom: 40px;
+  margin-bottom: 25px;
+  margin-top: 40px;
 }
 
 #grid .box:nth-child(1) #flag {
@@ -184,13 +203,15 @@ section {
       align-self: center;
   font-size: 36px;
   color: rgba(0, 0, 0, 0.67);
-  margin-bottom: 5px;
+  margin-top: 25px;
+  margin-bottom: 25px;
 }
 
 #grid .box:nth-child(1) .global-risk-score {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  height: 65px;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -199,6 +220,7 @@ section {
       -ms-flex-direction: row;
           flex-direction: row;
   color: rgba(0, 0, 0, 0.67);
+  margin-bottom: 25px;
 }
 
 #grid .box:nth-child(1) .risk-score {
@@ -208,6 +230,8 @@ section {
       -ms-grid-row-align: center;
       align-self: center;
   margin-right: 5px;
+  margin-top: auto;
+  margin-bottom: auto;
 }
 
 #grid .box:nth-child(1) .risk-score-end {
@@ -222,6 +246,7 @@ section {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  height: 65px;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -229,6 +254,7 @@ section {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
+  margin-bottom: 40px;
 }
 
 #grid .box:nth-child(1) #message-icon {
@@ -281,7 +307,6 @@ section {
   -ms-flex-item-align: center;
       -ms-grid-row-align: center;
       align-self: center;
-  margin-top: 5px;
 }
 
 #grid .box:nth-child(5) .policy-data {
@@ -292,9 +317,8 @@ section {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  max-height: 40px;
+  max-height: 25px;
   font-size: 16px;
-  margin-bottom: 10px;
 }
 
 #grid .box:nth-child(5) .policy-data-2 {
@@ -307,7 +331,6 @@ section {
           flex-direction: row;
   max-height: 25px;
   font-size: 16px;
-  margin-top: 5px;
 }
 
 #grid .box:nth-child(5) .policy-data-3 {
@@ -329,8 +352,6 @@ section {
       align-self: center;
   font-size: 16px;
   margin-left: 10px;
-  margin-top: 12px;
-  margin-bottom: 0px;
 }
 
 #grid .box:nth-child(5) .data-string-2 {
@@ -342,6 +363,19 @@ section {
 }
 
 #grid .box:nth-child(5) .data-string-3 {
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  font-size: 16px;
+  margin-left: 10px;
+}
+
+.data-unavailable-large {
+  font-size: 16px;
+  margin-top: 10px;
+}
+
+.data-unavailable-small {
   -ms-flex-item-align: center;
       -ms-grid-row-align: center;
       align-self: center;

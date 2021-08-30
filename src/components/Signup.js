@@ -23,7 +23,7 @@ const Signup = () => {
   const signup = async () => {
     const response = await firebase
       .auth()
-      .createUser({ displayName: userName, email, password });
+      .signInWithEmailAndPassword(email, password);
     console.log(response);
   };
 
@@ -60,9 +60,8 @@ const Signup = () => {
         }
         return (
           <>
-            {() => <p>Welcome! </p>}
             <div className="signup-header">
-              <h1 className="app-title">roamFree</h1>
+              <h1 className="app-title">roamSafe</h1>
               <img id="app-logo" src={appLogo} alt="" />
             </div>
             <div className="signup-section">
@@ -86,7 +85,7 @@ const Signup = () => {
                       name="email"
                       type="text"
                       value={email}
-                      placeholder="E-mail"
+                      placeholder="Email address"
                       onChange={(e) => {
                         setEmail(e.target.value);
                       }}

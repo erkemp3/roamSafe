@@ -8,27 +8,30 @@ import appLogo from "../images/appLogo.png";
 export default function Landing() {
   return (
     <div className="landing-page">
-      <div className="landing-container">
-        <div className="small-container-landing">
-          <div className="landing-message">
-            <div className="landing-header">
-              <h2>roamFree</h2>
-              <img id="landing-app-logo" src={appLogo} alt="" />
+      {/* <div className="landing-container">
+        <div className="small-container-landing"> */}
+      <div className="landing-message">
+        <div className="landing-header">
+          <h2>roamSafe</h2>
+          <img id="landing-app-logo" src={appLogo} alt="" />
+        </div>
+        <div className="tag-line">
+          <h3>Travel internationally, covid secure</h3>
+
+          <div className="landing-links">
+            <div>
+              <Link className="signup-link-landing" to="/signup">
+                SIGN UP
+              </Link>
             </div>
-            <h3>An app to help you travel internationally, covid safe.</h3>
-            <div className="landing-links">
-              <div>
-                <Link className="signup-link-landing" to="/signup">
-                  SIGN UP
-                </Link>
-              </div>
-              <div>
-                <Link className="login-link-landing" to="/login">
-                  LOG IN
-                </Link>
-              </div>
+            <div>
+              <Link className="login-link-landing" to="/login">
+                LOG IN
+              </Link>
             </div>
           </div>
+          {/* </div>
+          </div> */}
         </div>
       </div>
     </div>

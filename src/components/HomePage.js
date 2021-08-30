@@ -23,10 +23,6 @@ export default function HomePage() {
     }
   };
 
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-
-  // };
   return (
     <div className="container">
       <div className="search-section">
@@ -34,7 +30,7 @@ export default function HomePage() {
           <form className="search-box" onSubmit={search}>
             <h2 className="search-title">Welcome </h2>
             <img id="planepic" src={planepic} alt="" />
-            <h3 className="search-question">Where are you headed?</h3>
+            <p className="search-question">Where are you headed?</p>
             <div className="blue-search-bar">
               <div className="white-search-bar">
                 <input
@@ -50,9 +46,13 @@ export default function HomePage() {
                 <button className="search-button" type="submit">
                   <img id="search-icon" src={searchicon} alt="" />
                 </button>
-                {error && <p>Country does not exist - please check spelling</p>}
               </div>
             </div>
+            {error && (
+              <p className="homepage-error">
+                Country does not exist - please check spelling
+              </p>
+            )}
           </form>
         </div>
       </div>

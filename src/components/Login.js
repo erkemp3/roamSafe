@@ -59,14 +59,14 @@ const Login = () => {
             {!loading && (
               <>
                 {" "}
-                <div className="signup-header">
-                  <h1 className="app-title">roamFree</h1>
+                <div className="login-header">
+                  <p className="app-title">roamSafe</p>
                   <img id="app-logo" src={appLogo} alt="" />
                 </div>
                 <div className="login-section">
                   <div className="login-container">
                     <form className="login-form" onSubmit={handleWithPopUp}>
-                      <h2 className="form__title">SIGN IN</h2>
+                      <p className="login_form_title">SIGN IN</p>
                       <div>
                         <input
                           id="email-login"
