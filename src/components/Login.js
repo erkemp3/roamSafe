@@ -19,7 +19,10 @@ const Login = () => {
   const history = useHistory();
 
   const login = async () => {
-    await firebase.auth().signInWithEmailAndPassword(email, password);
+    const response = await firebase
+      .auth()
+      .signInWithEmailAndPassword(email, password);
+    console.log(response);
   };
 
   useEffect(() => {
@@ -53,51 +56,56 @@ const Login = () => {
         return (
           <>
             {loading && <p className="loading">Loading...</p>}
-            <div className="signup-header">
-              <h1 className="app-title">roamFree</h1>
-              <img id="app-logo" src={appLogo} alt="" />
-            </div>
-            <div className="login-section">
-              <div className="login-container">
-                <form className="login-form" onSubmit={handleWithPopUp}>
-                  <h2 className="form__title">SIGN IN</h2>
-                  <div>
-                    <input
-                      id="email-login"
-                      name="email"
-                      type="text"
-                      value={email}
-                      placeholder="Email address"
-                      onChange={(e) => {
-                        setEmail(e.target.value);
-                      }}
-                    />
+            {!loading && (
+              <>
+                {" "}
+                <div className="signup-header">
+                  <h1 className="app-title">roamFree</h1>
+                  <img id="app-logo" src={appLogo} alt="" />
+                </div>
+                <div className="login-section">
+                  <div className="login-container">
+                    <form className="login-form" onSubmit={handleWithPopUp}>
+                      <h2 className="form__title">SIGN IN</h2>
+                      <div>
+                        <input
+                          id="email-login"
+                          name="email"
+                          type="text"
+                          value={email}
+                          placeholder="Email address"
+                          onChange={(e) => {
+                            setEmail(e.target.value);
+                          }}
+                        />
+                      </div>
+                      <div>
+                        <input
+                          id="password-login"
+                          name="password"
+                          type="password"
+                          value={password}
+                          placeholder="Password"
+                          onChange={(e) => {
+                            setPassword(e.target.value);
+                          }}
+                        />
+                      </div>
+                      {error && <div>{error}</div>}
+                      <button className="blue-login-button" type="submit">
+                        LOG IN
+                      </button>
+                      <div className="register-div">
+                        Need an account?
+                        <Link className="register-link" to="/signup">
+                          REGISTER
+                        </Link>
+                      </div>
+                    </form>
                   </div>
-                  <div>
-                    <input
-                      id="password-login"
-                      name="password"
-                      type="password"
-                      value={password}
-                      placeholder="Password"
-                      onChange={(e) => {
-                        setPassword(e.target.value);
-                      }}
-                    />
-                  </div>
-                  {error && <div>{error}</div>}
-                  <button className="blue-login-button" type="submit">
-                    LOG IN
-                  </button>
-                  <div className="register-div">
-                    Need an account?
-                    <Link className="register-link" to="/signup">
-                      REGISTER
-                    </Link>
-                  </div>
-                </form>
-              </div>
-            </div>
+                </div>
+              </>
+            )}
           </>
         );
       }}

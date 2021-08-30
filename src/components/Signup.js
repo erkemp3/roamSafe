@@ -21,7 +21,10 @@ const Signup = () => {
   const history = useHistory();
 
   const signup = async () => {
-    await firebase.auth().createUserWithEmailAndPassword(email, password);
+    const response = await firebase
+      .auth()
+      .createUser({ displayName: userName, email, password });
+    console.log(response);
   };
 
   useEffect(() => {
@@ -42,6 +45,7 @@ const Signup = () => {
         history.push("/");
       } catch (e) {
         setError(<div className="error-message">Failed to create account</div>);
+        console.log(e);
       } finally {
         setLoading(false);
       }
