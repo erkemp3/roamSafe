@@ -16,7 +16,7 @@ export default function Landing() {
           <img id="landing-app-logo" src={appLogo} alt="" />
         </div>
         <div className="tag-line">
-          <h3>Travel internationally, covid secure</h3>
+          <h3>Travel internationally, covid secure 🌎</h3>
 
           <div className="landing-links">
             <div>
