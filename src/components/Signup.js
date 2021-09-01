@@ -23,7 +23,7 @@ const Signup = () => {
   const signup = async () => {
     const response = await firebase
       .auth()
-      .signInWithEmailAndPassword(email, password);
+      .createUserWithEmailAndPassword(email, password);
     console.log(response);
   };
 
