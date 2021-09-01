@@ -4,9 +4,15 @@ $navBarColour: #3ebbbf;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin: auto;
+  margin: 0;
   height: 90vh;
   width: 100vw;
+}
+
+.country-info-content {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
 
 section {
@@ -122,6 +128,7 @@ section {
       #flag {
         align-self: center;
         width: 120px;
+        filter: drop-shadow(3px 3px 3px rgba(0, 0, 0, 0.137));
       }
       .advisory-message {
         align-self: center;
@@ -253,4 +260,24 @@ section {
   align-self: center;
   font-size: 16px;
   margin-left: 10px;
+}
+
+.randomise-button {
+  align-self: center;
+  margin-left: 30px;
+  background: transparent;
+  border: none;
+  transition: all 0.2s ease-in-out;
+  height: 100px;
+}
+
+.randomise-button:hover {
+  transform: scale(1.2);
+  cursor: pointer;
+}
+
+#dice {
+  width: 100px;
+  height: 100px;
+  filter: drop-shadow(3px 3px 3px rgba(0, 0, 0, 0.14));
 }
