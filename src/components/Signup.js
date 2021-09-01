@@ -42,7 +42,7 @@ const Signup = () => {
         setError("");
         setLoading(true);
         await signup();
-        history.push("/");
+        history.push("/homepage");
       } catch (e) {
         setError(<div className="error-message">Failed to create account</div>);
         console.log(e);
@@ -56,7 +56,7 @@ const Signup = () => {
     <FirebaseAuthConsumer>
       {({ isSignedIn }) => {
         if (isSignedIn) {
-          return <Redirect to="/" />;
+          return <Redirect to="/homepage" />;
         }
         return (
           <>

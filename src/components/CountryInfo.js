@@ -1,3 +1,4 @@
+/* eslint-disable operator-linebreak */
 /* eslint-disable comma-dangle */
 /* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
@@ -5,7 +6,7 @@
 /* eslint-disable arrow-body-style */
 /* eslint-disable quotes */
 import React, { useEffect, useState } from "react";
-import { useParams, Redirect } from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom";
 import axios from "axios";
 import "../styles/CountryInfo.css";
 import orangeTriangle from "../images/orange-triangle.png";
@@ -15,6 +16,8 @@ import policyIcon from "../images/policy-icon.png";
 import quarantineIcon from "../images/quarantine-icon.png";
 import testIcon from "../images/test-icon.png";
 import virusIcon from "../images/virus-icon.png";
+import countryNames from "../data/countryNames";
+import dice from "../images/ion_dice.png";
 
 const CountryInfo = (props) => {
   const { country } = useParams();
@@ -63,8 +66,6 @@ const CountryInfo = (props) => {
   let data;
 
   console.log(covidResult);
-
-  // const dataUnavailable = <p>Data unavailable</p>;
 
   if (covidResult) {
     data = countries.filter((x) => x.name === covidResult[0].country);
@@ -129,134 +130,154 @@ const CountryInfo = (props) => {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   };
 
+  const history = useHistory();
+
+  function handleClick() {
+    const randomCountry =
+      countryNames[Math.floor(Math.random() * countryNames.length)];
+    history.push(`/country-info/${randomCountry}`);
+  }
+
   return covidResult && riskFactor ? (
     <div className="container">
-      <section id="grid">
-        <div className="box">
-          <div className="bigbox-content">
-            <p className="country-name">{`${covidResult[0].country}`}</p>
-            <img
-              id="flag"
-              src={`https://www.countryflags.io/${covidResult[0].code}/flat/64.png`}
-              alt=""
-            />
-            <p className="global-risk"> Global Risk Score:</p>
-            <div className="global-risk-score">
-              <p className="risk-score" style={{ color: getRiskFactorColor() }}>
-                {`${countryRiskFactor.advisory.score}`}
-              </p>
-              <p className="risk-score-end">out of 5</p>
-            </div>
-            <div className="advisory-section">
-              <img id="message-icon" src={getAdvisoryIcon()} alt="" />
-              <p
-                className="advisory-message"
-                style={{ color: getRiskFactorColor() }}
-              >
-                {getAdvisoryMessage()}
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <div className="box">
-          <div className="box-content">
-            <img id="icons" src={virusIcon} alt="" />
-            <div className="info-box">
-              <p className="info-box-header">COVID-19 Status</p>
-              <div className="data">
-                <p className="mini-header">Confirmed Cases:</p>
-                <p className="number">
-                  {numberWithCommas(covidResult[0].confirmed)}
+      <div className="country-info-content">
+        <section id="grid">
+          <div className="box">
+            <div className="bigbox-content">
+              <p className="country-name">{`${covidResult[0].country}`}</p>
+              <img
+                id="flag"
+                src={`https://www.countryflags.io/${covidResult[0].code}/flat/64.png`}
+                alt=""
+              />
+              <p className="global-risk"> Global Risk Score:</p>
+              <div className="global-risk-score">
+                <p
+                  className="risk-score"
+                  style={{ color: getRiskFactorColor() }}
+                >
+                  {`${countryRiskFactor.advisory.score}`}
                 </p>
+                <p className="risk-score-end">out of 5</p>
               </div>
-              <div className="data">
-                <p className="mini-header">Deaths:</p>
-                <p className="number">
-                  {numberWithCommas(covidResult[0].deaths)}
-                </p>
-              </div>
-              <div className="data">
-                <p className="mini-header">Recovered:</p>
-                <p className="number">
-                  {numberWithCommas(covidResult[0].recovered)}
+              <div className="advisory-section">
+                <img id="message-icon" src={getAdvisoryIcon()} alt="" />
+                <p
+                  className="advisory-message"
+                  style={{ color: getRiskFactorColor() }}
+                >
+                  {getAdvisoryMessage()}
                 </p>
               </div>
             </div>
           </div>
-        </div>
 
-        <div className="box">
-          <div className="box-content">
-            <img id="icons" src={quarantineIcon} alt="" />
-            <div className="info-box">
-              <p className="info-box-header">Quarantine</p>
-              {data[0] ? (
-                <p className="quarantine-data">{data[0].quarantine}</p>
-              ) : (
-                <p className="data-unavailable-large">
-                  Data currently unavailable
-                </p>
-              )}
-            </div>
-          </div>
-        </div>
-
-        <div className="box">
-          <div className="box-content">
-            <img id="icons" src={testIcon} alt="" />
-            <div className="info-box">
-              <p className="info-box-header">Testing</p>
-              {data[0] ? (
-                <p className="test-data">{data[0].test}</p>
-              ) : (
-                <p className="data-unavailable-large">
-                  Data currently unavailable
-                </p>
-              )}
-            </div>
-          </div>
-        </div>
-
-        <div className="box">
-          <div className="box-content">
-            <img id="icons" src={policyIcon} alt="" />
-            <div className="info-box">
-              <p className="info-box-header">Policy</p>
-              <div className="policy-data">
-                <p className="mini-header-1">Masks:</p>
-                {data[0] ? (
-                  <p className="data-string-1">{data[0].masks}</p>
-                ) : (
-                  <p className="data-unavailable-small">
-                    Data currently unavailable
+          <div className="box">
+            <div className="box-content">
+              <img id="icons" src={virusIcon} alt="" />
+              <div className="info-box">
+                <p className="info-box-header">COVID-19 Status</p>
+                <div className="data">
+                  <p className="mini-header">Confirmed Cases:</p>
+                  <p className="number">
+                    {numberWithCommas(covidResult[0].confirmed)}
                   </p>
-                )}
-              </div>
-              <div className="policy-data-2">
-                <p className="mini-header">Restaurants:</p>
-                {data[0] ? (
-                  <p className="data-string-2">{data[0].restaurants}</p>
-                ) : (
-                  <p className="data-unavailable-small">
-                    Data currently unavailable
+                </div>
+                <div className="data">
+                  <p className="mini-header">Deaths:</p>
+                  <p className="number">
+                    {numberWithCommas(covidResult[0].deaths)}
                   </p>
-                )}
+                </div>
+                <div className="data">
+                  <p className="mini-header">Recovered:</p>
+                  <p className="number">
+                    {numberWithCommas(covidResult[0].recovered)}
+                  </p>
+                </div>
               </div>
-              <div className="policy-data-3">
-                <p className="mini-header">Bars:</p>
+            </div>
+          </div>
+
+          <div className="box">
+            <div className="box-content">
+              <img id="icons" src={quarantineIcon} alt="" />
+              <div className="info-box">
+                <p className="info-box-header">Quarantine</p>
                 {data[0] ? (
-                  <p className="data-string-3">{data[0].bars}</p>
+                  <p className="quarantine-data">{data[0].quarantine}</p>
                 ) : (
-                  <p className="data-unavailable-small">
+                  <p className="data-unavailable-large">
                     Data currently unavailable
                   </p>
                 )}
               </div>
             </div>
           </div>
-        </div>
-      </section>
+
+          <div className="box">
+            <div className="box-content">
+              <img id="icons" src={testIcon} alt="" />
+              <div className="info-box">
+                <p className="info-box-header">Testing</p>
+                {data[0] ? (
+                  <p className="test-data">{data[0].test}</p>
+                ) : (
+                  <p className="data-unavailable-large">
+                    Data currently unavailable
+                  </p>
+                )}
+              </div>
+            </div>
+          </div>
+
+          <div className="box">
+            <div className="box-content">
+              <img id="icons" src={policyIcon} alt="" />
+              <div className="info-box">
+                <p className="info-box-header">Policy</p>
+                <div className="policy-data">
+                  <p className="mini-header-1">Masks:</p>
+                  {data[0] ? (
+                    <p className="data-string-1">{data[0].masks}</p>
+                  ) : (
+                    <p className="data-unavailable-small">
+                      Data currently unavailable
+                    </p>
+                  )}
+                </div>
+                <div className="policy-data-2">
+                  <p className="mini-header">Restaurants:</p>
+                  {data[0] ? (
+                    <p className="data-string-2">{data[0].restaurants}</p>
+                  ) : (
+                    <p className="data-unavailable-small">
+                      Data currently unavailable
+                    </p>
+                  )}
+                </div>
+                <div className="policy-data-3">
+                  <p className="mini-header">Bars:</p>
+                  {data[0] ? (
+                    <p className="data-string-3">{data[0].bars}</p>
+                  ) : (
+                    <p className="data-unavailable-small">
+                      Data currently unavailable
+                    </p>
+                  )}
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <button
+          className="randomise-button"
+          type="button"
+          onClick={handleClick}
+        >
+          <img id="dice" src={dice} alt="" />
+        </button>
+      </div>
     </div>
   ) : (
     <div className="country"> </div>

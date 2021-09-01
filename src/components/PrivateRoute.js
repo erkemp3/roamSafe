@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable no-console */
 /* eslint-disable quotes */
 import React, { useEffect, useState } from "react";
@@ -5,7 +6,6 @@ import { Redirect, Route } from "react-router-dom";
 import { FirebaseAuthConsumer } from "@react-firebase/auth";
 import firebase from "firebase";
 
-// eslint-disable-next-line react/prop-types
 const PrivateRoute = ({ children, ...rest }) => {
   const [loading, setLoading] = useState(true);
 

@@ -33,11 +33,6 @@ const config = {
     "https://roamfree-dad3a-default-rtdb.europe-west1.firebasedatabase.app/",
 };
 
-// const app = initializeApp(config);
-
-// firebase.initializeApp(config);
-// const database = firebase.database();
-
 function App({ countries }) {
   const [content, setContent] = useState("");
   return (

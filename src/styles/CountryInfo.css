@@ -9,9 +9,22 @@
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  margin: auto;
+  margin: 0;
   height: 90vh;
   width: 100vw;
+}
+
+.country-info-content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 section {
@@ -189,6 +202,8 @@ section {
       -ms-grid-row-align: center;
       align-self: center;
   width: 120px;
+  -webkit-filter: drop-shadow(3px 3px 3px rgba(0, 0, 0, 0.137));
+          filter: drop-shadow(3px 3px 3px rgba(0, 0, 0, 0.137));
 }
 
 #grid .box:nth-child(1) .advisory-message {
@@ -381,5 +396,30 @@ section {
       align-self: center;
   font-size: 16px;
   margin-left: 10px;
+}
+
+.randomise-button {
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  margin-left: 30px;
+  background: transparent;
+  border: none;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  height: 100px;
+}
+
+.randomise-button:hover {
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
+  cursor: pointer;
+}
+
+#dice {
+  width: 100px;
+  height: 100px;
+  -webkit-filter: drop-shadow(3px 3px 3px rgba(0, 0, 0, 0.14));
+          filter: drop-shadow(3px 3px 3px rgba(0, 0, 0, 0.14));
 }
 /*# sourceMappingURL=CountryInfo.css.map */
