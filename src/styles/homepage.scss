@@ -109,12 +109,20 @@
   text-align: center;
 }
 .search-button {
+  align-self: center;
   text-align: right;
   margin-left: auto;
   margin-right: 15px;
   margin-top: 5px;
+  height: 30px;
   background: #fafafa;
   border: none;
   border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.search-button:hover {
+  transform: scale(1.1);
   cursor: pointer;
 }
