@@ -1,0 +1,75 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Login renders correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="App"
+  >
+    <div
+      class="navbar"
+    >
+      <ul
+        class="navbar-links"
+      />
+      <div
+        class="navbar-right"
+      >
+        <img
+          alt=""
+          id="navbar-logo"
+          src="appLogo.png"
+        />
+      </div>
+    </div>
+    <div>
+      <div
+        class="landing-page"
+      >
+        <div
+          class="landing-message"
+        >
+          <div
+            class="landing-header"
+          >
+            <h2>
+              roamSafe
+            </h2>
+            <img
+              alt=""
+              id="landing-app-logo"
+              src="appLogo.png"
+            />
+          </div>
+          <div
+            class="tag-line"
+          >
+            <h3>
+              Travel internationally, covid secure 🌎
+            </h3>
+            <div
+              class="landing-links"
+            >
+              <div>
+                <a
+                  class="signup-link-landing"
+                  href="/signup"
+                >
+                  SIGN UP
+                </a>
+              </div>
+              <div>
+                <a
+                  class="login-link-landing"
+                  href="/login"
+                >
+                  LOG IN
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;

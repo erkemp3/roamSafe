@@ -1,10 +1,4 @@
-/* eslint-disable comma-dangle */
-/* eslint-disable no-console */
-/* eslint-disable react/jsx-curly-newline */
-/* eslint-disable implicit-arrow-linebreak */
-/* eslint-disable react/prop-types */
-/* eslint-disable operator-linebreak */
-/* eslint-disable quotes */
+/* eslint-disable */
 import React, { memo, useEffect, useState } from "react";
 import {
   ZoomableGroup,
@@ -14,7 +8,7 @@ import {
 } from "react-simple-maps";
 
 import axios from "axios";
-import "../styles/CovidMap.css";
+import "../styles/CovidMap.scss";
 import { useHistory } from "react-router-dom";
 
 const geoUrl =

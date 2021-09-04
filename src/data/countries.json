@@ -72,6 +72,8 @@
     },
     {
       "name": "Ireland",
+      "unvaccinated": "Unvaccinated visitors from the United Kingdom will not be allowed to enter Ireland.",
+      "vaccinated": "Fully vaccinated visitors from the United Kingdom can enter Ireland without restrictions.",
       "test": "Unvaccinated visitors from the United Kingdom must present a negative RT-PCR (NAAT) test taken 72 hours before departing to Ireland. Fully vaccinated visitors with approved vaccination certificates do not need to present a negative COVID-19 test.",
       "quarantine": "Unvaccinated visitors from the United Kingdom will need to quarantine for 14 days upon entering Ireland. Fully vaccinated visitors with approved vaccination certificates do not need to quarantine.",
       "masks": "Required",

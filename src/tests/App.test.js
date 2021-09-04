@@ -1,10 +1,16 @@
-/* eslint-disable quotes */
+/* eslint-disable */
+import React from "react";
+import { BrowserRouter as Router } from "react-router-dom";
 import { render, screen } from "@testing-library/react";
 import App from "../components/App";
+import "@testing-library/jest-dom";
 
-test("renders learn react link", () => {
-  // eslint-disable-next-line react/react-in-jsx-scope
-  render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
+test("renders App", () => {
+  render(
+    <Router>
+      <App countries={[]} />
+    </Router>
+  );
+  const linkElement = screen.getByText(/roamSafe/i);
   expect(linkElement).toBeInTheDocument();
 });

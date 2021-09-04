@@ -1,12 +1,9 @@
-/* eslint-disable comma-dangle */
-/* eslint-disable no-console */
-/* eslint-disable no-unused-vars */
-/* eslint-disable quotes */
+/* eslint-disable */
 import React, { useState, useEffect } from "react";
 import { Link, useHistory, Redirect } from "react-router-dom";
 import firebase from "firebase";
 import { FirebaseAuthConsumer } from "@react-firebase/auth";
-import "../styles/Login.css";
+import "../styles/Login.scss";
 import appLogo from "../images/appLogo.png";
 
 const Login = () => {

@@ -1,12 +1,8 @@
-/* eslint-disable comma-dangle */
-/* eslint-disable import/no-extraneous-dependencies */
-/* eslint-disable no-console */
-/* eslint-disable import/order */
-/* eslint-disable quotes */
+/* eslint-disable */
 
 import React, { useState } from "react";
 import PropTypes from "prop-types";
-import "../styles/App.css";
+import "../styles/App.scss";
 import Login from "./Login";
 import Signup from "./Signup";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
@@ -69,6 +65,7 @@ App.propTypes = {
       name: PropTypes.string.isRequired,
       vaccinated: PropTypes.string.isRequired,
       unvaccinated: PropTypes.string.isRequired,
+      test: PropTypes.string.isRequired,
       quarantine: PropTypes.string.isRequired,
       masks: PropTypes.string.isRequired,
       restaurants: PropTypes.string.isRequired,
