@@ -1,14 +1,8 @@
-/* eslint-disable operator-linebreak */
-/* eslint-disable comma-dangle */
-/* eslint-disable react/prop-types */
-/* eslint-disable no-unused-vars */
-/* eslint-disable no-console */
-/* eslint-disable arrow-body-style */
-/* eslint-disable quotes */
+/* eslint-disable */
 import React, { useEffect, useState } from "react";
 import { useParams, useHistory } from "react-router-dom";
 import axios from "axios";
-import "../styles/CountryInfo.css";
+import "../styles/CountryInfo.scss";
 import orangeTriangle from "../images/orange-triangle.png";
 import redTriangle from "../images/red-triangle.png";
 import greenTick from "../images/green-tick.png";
@@ -58,7 +52,6 @@ const CountryInfo = (props) => {
         setRiskFactor(response.data);
       })
       .catch((error) => {
-        // eslint-disable-next-line no-console
         console.log(error);
       });
   }, []);

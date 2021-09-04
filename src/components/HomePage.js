@@ -1,9 +1,7 @@
-/* eslint-disable no-console */
-/* eslint-disable spaced-comment */
-/* eslint-disable quotes */
+/* eslint-disable */
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
-import "../styles/homepage.css";
+import "../styles/homepage.scss";
 import planepic from "../images/planepic.png";
 import searchicon from "../images/search.png";
 import countryList from "../data/countryNames";

@@ -1,4 +1,4 @@
-/* eslint-disable quotes */
+/* eslint-disable */
 
 const countryList = [
   "Afghanistan",
@@ -28,9 +28,7 @@ const countryList = [
   "Bolivia",
   "Bosnia and Herzegovina",
   "Botswana",
-  "Bouvet Island",
   "Brazil",
-  "Brunei Darussalam",
   "Bulgaria",
   "Burkina Faso",
   "Burundi",
@@ -246,7 +244,7 @@ const countryList = [
   "australia",
   "austria",
   "azerbaijan",
-  "bahamas (the)",
+  "bahamas",
   "bahrain",
   "bangladesh",
   "barbados",
@@ -259,13 +257,11 @@ const countryList = [
   "bolivia",
   "bosnia and herzegovina",
   "botswana",
-  "bouvet Island",
   "brazil",
-  "brunei darussalam",
   "bulgaria",
   "burkina faso",
   "burundi",
-  "cabo Verde",
+  "cabo verde",
   "cambodia",
   "cameroon",
   "canada",
@@ -319,7 +315,7 @@ const countryList = [
   "guatemala",
   "guernsey",
   "guinea",
-  "guinea-Bissau",
+  "guinea-bissau",
   "guyana",
   "haiti",
   "honduras",
@@ -385,7 +381,7 @@ const countryList = [
   "niger",
   "nigeria",
   "niue",
-  "norfolk Island",
+  "norfolk island",
   "norway",
   "oman",
   "pakistan",
@@ -453,7 +449,7 @@ const countryList = [
   "us",
   "uruguay",
   "uzbekistan",
-  "vvanuatu",
+  "vanuatu",
   "venezuela",
   "vietnam",
   "wallis and futuna",
@@ -461,7 +457,6 @@ const countryList = [
   "yemen",
   "zambia",
   "zimbabwe",
-  "Åland Islands",
 ];
 
 export default countryList;

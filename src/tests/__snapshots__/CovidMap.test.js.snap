@@ -1,0 +1,49 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CovidMap renders correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="covidMap-page"
+  >
+    <p
+      class="covidMap-title"
+    >
+      COVID-19 ZOOMABLE MAP
+    </p>
+    <p
+      class="covidMap-info"
+    >
+      Click and drag to pan map ⬩ Hover over country to see risk factor ⬩ Click on country for further COVID-19 info
+    </p>
+    <div
+      class="covidMap-BigContainer"
+    >
+      <div
+        class="covidMapContainer"
+      >
+        <svg
+          class="rsm-svg Map"
+          data-tip=""
+          viewBox="0 0 800 600"
+        >
+          <g>
+            <rect
+              fill="transparent"
+              height="600"
+              width="800"
+            />
+            <g
+              class="rsm-zoomable-group undefined"
+              transform="translate(0 0) scale(1)"
+            >
+              <g
+                class="rsm-geographies "
+              />
+            </g>
+          </g>
+        </svg>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;

@@ -1,15 +1,12 @@
-/* eslint-disable spaced-comment */
-/* eslint-disable quotes */
+/* eslint-disable */
 import React from "react";
 import { Link } from "react-router-dom";
-import "../styles/LandingPage.css";
+import "../styles/LandingPage.scss";
 import appLogo from "../images/appLogo.png";
 
 export default function Landing() {
   return (
     <div className="landing-page">
-      {/* <div className="landing-container">
-        <div className="small-container-landing"> */}
       <div className="landing-message">
         <div className="landing-header">
           <h2>roamSafe</h2>
@@ -30,8 +27,6 @@ export default function Landing() {
               </Link>
             </div>
           </div>
-          {/* </div>
-          </div> */}
         </div>
       </div>
     </div>
