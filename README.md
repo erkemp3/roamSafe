@@ -8,6 +8,7 @@ An app to help you travel internationally, covid secure. Built using React, Fire
 * JavaScript
 * HTML
 * CSS
+* Sass
 * Google Firebase
 * APIs
 
