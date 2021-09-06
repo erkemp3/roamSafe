@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/roamSafe/static/css/main.f4ad1c29.chunk.css",
-    "main.js": "/roamSafe/static/js/main.2a32362e.chunk.js",
-    "main.js.map": "/roamSafe/static/js/main.2a32362e.chunk.js.map",
+    "main.js": "/roamSafe/static/js/main.93677db3.chunk.js",
+    "main.js.map": "/roamSafe/static/js/main.93677db3.chunk.js.map",
     "runtime-main.js": "/roamSafe/static/js/runtime-main.04962826.js",
     "runtime-main.js.map": "/roamSafe/static/js/runtime-main.04962826.js.map",
     "static/js/2.1ef0b56e.chunk.js": "/roamSafe/static/js/2.1ef0b56e.chunk.js",
@@ -16,6 +16,6 @@
     "static/js/runtime-main.04962826.js",
     "static/js/2.1ef0b56e.chunk.js",
     "static/css/main.f4ad1c29.chunk.css",
-    "static/js/main.2a32362e.chunk.js"
+    "static/js/main.93677db3.chunk.js"
   ]
 }
