@@ -48,7 +48,7 @@ const Login = () => {
     <FirebaseAuthConsumer>
       {({ isSignedIn }) => {
         if (isSignedIn) {
-          return <Redirect to="/" />;
+          return <Redirect to="/roamSafe/" />;
         }
         return (
           <>

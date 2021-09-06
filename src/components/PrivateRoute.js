@@ -23,7 +23,7 @@ const PrivateRoute = ({ children, ...rest }) => {
         if (isSignedIn) {
           return <Route {...rest}>{children}</Route>;
         }
-        return <Redirect to="/" />;
+        return <Redirect to="/roamSafe/" />;
       }}
     </FirebaseAuthConsumer>
   );
