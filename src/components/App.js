@@ -38,7 +38,7 @@ function App({ countries }) {
           <NavBar />
           <div>
             <Switch>
-              <Route exact path="/" component={Landing} />
+              <Route exact path="/roamSafe/" component={Landing} />
               <PrivateRoute path="/homepage">
                 <HomePage />
               </PrivateRoute>
