@@ -2,6 +2,7 @@
   "name": "covid-travel-app",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://erkemp3.github.io/roamSafe/",
   "dependencies": {
     "@react-firebase/auth": "^0.2.10",
     "@testing-library/react": "^11.2.7",
