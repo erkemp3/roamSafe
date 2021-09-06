@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.css": "/static/css/main.f4ad1c29.chunk.css",
-    "main.js": "/static/js/main.2a32362e.chunk.js",
-    "main.js.map": "/static/js/main.2a32362e.chunk.js.map",
-    "runtime-main.js": "/static/js/runtime-main.9f242a7a.js",
-    "runtime-main.js.map": "/static/js/runtime-main.9f242a7a.js.map",
-    "static/js/2.534c2d1a.chunk.js": "/static/js/2.534c2d1a.chunk.js",
-    "static/js/2.534c2d1a.chunk.js.map": "/static/js/2.534c2d1a.chunk.js.map",
-    "index.html": "/index.html",
-    "static/css/main.f4ad1c29.chunk.css.map": "/static/css/main.f4ad1c29.chunk.css.map",
-    "static/js/2.534c2d1a.chunk.js.LICENSE.txt": "/static/js/2.534c2d1a.chunk.js.LICENSE.txt",
-    "static/media/ion_dice.02236c52.png": "/static/media/ion_dice.02236c52.png"
+    "main.css": "/roamSafe/static/css/main.f4ad1c29.chunk.css",
+    "main.js": "/roamSafe/static/js/main.2a32362e.chunk.js",
+    "main.js.map": "/roamSafe/static/js/main.2a32362e.chunk.js.map",
+    "runtime-main.js": "/roamSafe/static/js/runtime-main.04962826.js",
+    "runtime-main.js.map": "/roamSafe/static/js/runtime-main.04962826.js.map",
+    "static/js/2.1ef0b56e.chunk.js": "/roamSafe/static/js/2.1ef0b56e.chunk.js",
+    "static/js/2.1ef0b56e.chunk.js.map": "/roamSafe/static/js/2.1ef0b56e.chunk.js.map",
+    "index.html": "/roamSafe/index.html",
+    "static/css/main.f4ad1c29.chunk.css.map": "/roamSafe/static/css/main.f4ad1c29.chunk.css.map",
+    "static/js/2.1ef0b56e.chunk.js.LICENSE.txt": "/roamSafe/static/js/2.1ef0b56e.chunk.js.LICENSE.txt",
+    "static/media/ion_dice.02236c52.png": "/roamSafe/static/media/ion_dice.02236c52.png"
   },
   "entrypoints": [
-    "static/js/runtime-main.9f242a7a.js",
-    "static/js/2.534c2d1a.chunk.js",
+    "static/js/runtime-main.04962826.js",
+    "static/js/2.1ef0b56e.chunk.js",
     "static/css/main.f4ad1c29.chunk.css",
     "static/js/main.2a32362e.chunk.js"
   ]
