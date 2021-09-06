@@ -17,8 +17,7 @@
     "react-scripts": "4.0.3",
     "react-simple-maps": "^2.3.0",
     "react-tooltip": "^4.2.21",
-    "web-vitals": "^1.1.2",
-    "homepage": "http://erkemp3.github.io/roamSafe"
+    "web-vitals": "^1.1.2"
   },
   "scripts": {
     "start": "react-scripts start",
